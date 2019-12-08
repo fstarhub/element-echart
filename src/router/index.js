@@ -1,15 +1,17 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import HelloWorld from '@/components/HelloWorld'
+// import HelloWorld from '@/components/HelloWorld'
+import Index from '@/view/index/index.vue'
 
 Vue.use(Router)
 
 export default new Router({
+  mode: 'history', // 地址栏没有#
   routes: [
     {
       path: '/',
-      name: 'HelloWorld',
-      component: HelloWorld
+      name: 'Index',
+      component: Index
     }
   ]
 })

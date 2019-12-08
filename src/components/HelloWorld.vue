@@ -1,6 +1,6 @@
 <template>
   <div class="hello">
-    <h1>{{ msg }}</h1>
+    <h1>element样式测试</h1>
     <div class="elTes">
       <el-dropdown @command="handleCommand">
         <span class="el-dropdown-link">
@@ -22,14 +22,63 @@
           :label="item.label"
           :value="item.value">
         </el-option>
-  </el-select>
+      </el-select>
+    </div>
+    <div class="table">
+      <h1>table表格</h1>
+      <template>
+        <el-table
+          :data="tableData"
+          :row-style="{height: '80px'}"
+          :cell-style="{height: '45px'}"
+          
+          border>
+          <el-table-column
+            prop="date"
+            label="日期"
+            width="150">
+          </el-table-column>
+          <el-table-column
+            prop="name"
+            label="姓名"
+            width="120">
+          </el-table-column>
+          <el-table-column
+            prop="province"
+            label="省份"
+            width="120">
+          </el-table-column>
+          <el-table-column
+            prop="city"
+            label="市区"
+            width="120">
+          </el-table-column>
+          <el-table-column
+            prop="address"
+            label="地址"
+            width="300">
+          </el-table-column>
+          <el-table-column
+            prop="zip"
+            label="邮编"
+            width="120">
+          </el-table-column>
+          <el-table-column
+            label="操作"
+            width="70">
+            <template slot-scope="scope">
+              <el-button @click="handleClick(scope.row)" type="text" size="small">查看</el-button>
+              <el-button type="text" size="small">编辑</el-button>
+            </template>
+          </el-table-column>
+        </el-table>
+      </template>
     </div>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'HelloWorld',
    data() {
       return {
         options: [{
@@ -48,7 +97,36 @@ export default {
           value: '选项5',
           label: '北京烤鸭'
         }],
-        value: ''
+        value: '',
+        tableData: [{
+          date: '2016-05-02',
+          name: '王小虎',
+          province: '上海',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1518 弄',
+          zip: 200333
+        }, {
+          date: '2016-05-04',
+          name: '王小虎',
+          province: '上海',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1517 弄',
+          zip: 200333
+        }, {
+          date: '2016-05-01',
+          name: '王小虎',
+          province: '上海',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1519 弄',
+          zip: 200333
+        }, {
+          date: '2016-05-03',
+          name: '王小虎',
+          province: '上海',
+          city: '普陀区',
+          address: '上海市普陀区金沙江路 1516 弄',
+          zip: 200333
+        }]
       }
     },
   methods: {
@@ -84,4 +162,13 @@ export default {
     border: 1px solid blue;
     color: yellow;
   }
+  .table {
+    width: 800px; 
+    height: 800px;
+  }
+  .el-table__body tr{
+    color:blue;
+    height:52px;
+  }
+  .cell{max-height: 23px !important;overflow: hidden !important;}
 </style>

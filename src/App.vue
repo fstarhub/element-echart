@@ -1,13 +1,15 @@
 <template>
   <div id="app">
-    app首页
+    <span>app首页</span>
     <router-view/>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+  }
 }
 </script>
 
