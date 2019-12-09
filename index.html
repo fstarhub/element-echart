@@ -8,5 +8,25 @@
   <body>
     <div id="app"></div>
     <!-- built files will be auto injected -->
+
+    <script>
+      var arr=[
+        {id:1,name:'zhangyi',age:3},
+        {id:2,name:'zhanger',age:3},
+        {id:3,name:'zhangsan',age:3},
+        {id:4,name:'zhangsi',age:3},
+        {id:5,name:'zhangwu',age:3},
+      ]
+
+      function getThing() {
+        var myarr=[]
+        for( let i=0; i<arr.length;i++) {
+          console.log(arr[i])
+          myarr[i]=arr[i].name
+        }
+        console.log(myarr)
+      }
+      getThing()
+    </script>
   </body>
 </html>
