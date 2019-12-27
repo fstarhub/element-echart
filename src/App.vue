@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <span>hi fengstar</span>
+        <span @click="goHomme">hi fengstar</span>
         <router-view />
     </div>
 </template>
@@ -8,7 +8,12 @@
 <script>
 export default {
     name: 'App',
-    components: {}
+    components: {},
+    methods: {
+        goHomme() {
+            this.$router.replace('/')
+        }
+    }
 }
 </script>
 

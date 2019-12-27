@@ -22,7 +22,7 @@ export default {
 <style lang="less" rel="stylesheet/less" scoped>
 .indexContainer {
     .indexBox {
-        margin-top: 20px;
+        margin-top: 10px;
     }
     .mainContainer {
         display: flex;

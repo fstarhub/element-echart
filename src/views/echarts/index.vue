@@ -1,7 +1,9 @@
 <!--  -->
 <template>
-    <div class="demo">
-        echarts
+    <div class="echartsContainer">
+        <div class="echartsTitle">
+            echarts案例
+        </div>
     </div>
 </template>
 
@@ -54,8 +56,11 @@ export default {
 }
 </script>
 
-<style lang="less" rel="stylesheet/less" scoped>
-.domo {
-    color: blue;
+<style lang="less" rel="stylesheet/less">
+.echartsContainer {
+    margin-top: 10px;
+    .echartsTitle {
+        color: blue;
+    }
 }
 </style>

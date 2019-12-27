@@ -1,7 +1,9 @@
 <!--  -->
 <template>
-    <div class="demo">
-        element
+    <div class="elementContainer">
+        <div class="elementTitle">
+            element案例
+        </div>
     </div>
 </template>
 
@@ -54,4 +56,8 @@ export default {
 }
 </script>
 
-<style></style>
+<style lang="less" rel="stylesheet/less">
+.elementContainer {
+    margin-top: 10px;
+}
+</style>
