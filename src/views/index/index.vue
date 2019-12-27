@@ -15,10 +15,8 @@
 <script>
 export default {
     name: 'Index',
-    components: {
-    }
+    components: {}
 }
-
 </script>
 
 <style>
@@ -36,7 +34,6 @@ export default {
     height: 200px;
     text-align: center;
     background: darkorange;
-
 }
 .right {
     width: 200px;
