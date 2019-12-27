@@ -1,6 +1,6 @@
 <template>
     <div id="app">
-        <span>app首页</span>
+        <span>hi fengstar</span>
         <router-view />
     </div>
 </template>

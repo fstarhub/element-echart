@@ -54,4 +54,8 @@ export default {
 }
 </script>
 
-<style lang="stylus" rel="stylesheet/stylus" scoped></style>
+<style lang="less" rel="stylesheet/less" scoped>
+.domo {
+    color: blue;
+}
+</style>

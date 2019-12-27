@@ -16,8 +16,8 @@ var config = {
                 include: __dirname + '/src'
             },
             {
-                test: /\.stylus$/,
-                loader: ['style-loader', 'css-loader', 'postcss-loader', 'stylus-loader']
+                test: /\.less$/,
+                loader: ['style-loader', 'css-loader', 'postcss-loader', 'less-loader']
             },
             // {
             //     test: /\.(png|jpe?g|gif)$/,
