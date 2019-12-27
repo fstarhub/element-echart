@@ -95,55 +95,55 @@
 
 <script>
 export default {
-  data () {
-    return {
-      flag: false,
-      isCollapse: true,
-      options: [
-        {
-          value: '选项1',
-          label: '黄金糕'
-        },
-        {
-          value: '选项2',
-          label: '双皮奶'
-        },
-        {
-          value: '选项3',
-          label: '蚵仔煎'
-        },
-        {
-          value: '选项4',
-          label: '龙须面'
-        },
-        {
-          value: '选项5',
-          label: '北京烤鸭'
+    data() {
+        return {
+            flag: false,
+            isCollapse: true,
+            options: [
+                {
+                    value: '选项',
+                    label: '黄金糕'
+                },
+                {
+                    value: '选项2',
+                    label: '双皮奶'
+                },
+                {
+                    value: '选项3',
+                    label: '蚵仔煎'
+                },
+                {
+                    value: '选项4',
+                    label: '龙须面'
+                },
+                {
+                    value: '选项5',
+                    label: '北京烤鸭'
+                }
+            ],
+            value: ''
+            // activeIndex: '1',
+            // activeIndex2: '1'
         }
-      ],
-      value: ''
-      // activeIndex: '1',
-      // activeIndex2: '1'
-    }
     },
-  methods: {
-    handleCommand (command) {
-      this.$message('click on item ' + command)
+    methods: {
+        handleCommand(command) {
+            this.$message('click on item ' + command)
         },
-    getColor (key, keyPath) {
-      console.log(key, keyPath)
+        getColor(key, keyPath) {
+            console.log(key, keyPath)
             if ((key = 1 && keyPath)) {
-        // var item=document.getElementsByClassName('spanName')
-        // console.log(item)
-        // item.style.backgroundColor='red';
-        // this.flag=true
-        console.log(this.flag)
+                // var item=document.getElementsByClassName('spanName')
+                // console.log(item)
+                // item.style.backgroundColor='red';
+                // this.flag=true
+                console.log(this.flag)
             } else {
-        this.flag = false
+                this.flag = false
                 console.log('shibai')
             }
+        }
     }
-  }
 }
 </script>
 

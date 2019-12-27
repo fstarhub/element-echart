@@ -8,14 +8,11 @@
 <script>
 import Hello from '../../components/HelloWorld'
 export default {
-    name: 'Index',
-    components: {
-        Hello
-    }
+  name: 'Index',
+  components: {
+    Hello
+  }
 }
-
 </script>
 
-<style>
-
-</style>
+<style></style>
