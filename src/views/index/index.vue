@@ -15,33 +15,16 @@
 <script>
 export default {
     name: 'Index',
-    components: {
-    }
+    components: {}
 }
-
 </script>
 
-<style>
-.indexContainer {
+<style lang="stylus" rel="stylesheet/stylus" scoped>
+.indexContainer
     width: 100%;
-}
-.mainContainer {
-    margin-top: 40px;
-    display: flex;
-    justify-content: space-around;
-    align-content: center;
-}
-.left {
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    background: darkorange;
-
-}
-.right {
-    width: 200px;
-    height: 200px;
-    text-align: center;
-    background: salmon;
-}
+    .mainContainer
+        margin-top: 40px;
+        display: flex;
+        justify-content: space-around;
+        align-content: center;
 </style>
