@@ -4,15 +4,29 @@
         <div class="echartsTitle">
             echarts案例
         </div>
+        <div class="echartContent">
+            <div class="sideBar">
+                <SideBar />
+            </div>
+            <div class="contentArea">
+                <Content />
+            </div>
+        </div>
     </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
+import SideBar from '@/components/echarts/sidebar.vue'
+import Content from '@/components/echarts/airLines.vue'
+
 export default {
     //import引入的组件需要注入到对象中才能使用
-    components: {},
+    components: {
+        SideBar,
+        Content
+    },
     data() {
         //这里存放数据
         return {}
@@ -59,8 +73,22 @@ export default {
 <style lang="less" rel="stylesheet/less">
 .echartsContainer {
     margin-top: 10px;
-    .echartsTitle {
-        color: blue;
+    .echartContent {
+        width: 100%;
+        height: 100%;
+        // float: left;
+        overflow: hidden;
+        background: rgb(224, 220, 220);
+    }
+    .sideBar {
+        width: 200px;
+        height: 600px;
+        float: left;
+        color: #fff;
+        background: darkcyan;
+    }
+    .contentArea {
+        float: left;
     }
 }
 </style>

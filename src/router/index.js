@@ -3,6 +3,8 @@ import Router from 'vue-router'
 import Index from '@/views/index/index.vue'
 import Element from '@/views/element/index.vue'
 import Echarts from '@/views/echarts/index.vue'
+import Dthree from '@/views/dThree/index.vue'
+import Iview from '@/views/iview/index.vue'
 
 Vue.use(Router)
 
@@ -27,6 +29,16 @@ export default new Router({
             path: '/echarts',
             name: 'Echarts',
             component: Echarts
+        },
+        {
+            path: '/dthree',
+            name: 'Dthree',
+            component: Dthree
+        },
+        {
+            path: '/iview',
+            name: 'Iview',
+            component: Iview
         }
     ]
 })

@@ -3,10 +3,16 @@
         <div class="indexBox">欢迎来到我的项目</div>
         <div class="mainContainer">
             <div @click="$router.push('/element')" class="left">
-                <div class="inner leftInner">element-ui</div>
+                <div class="inner leftInner">Element-ui</div>
+            </div>
+            <div @click="$router.push('/Dthree')" class="leftOne">
+                <div class="inner leftInner">D3.js</div>
+            </div>
+            <div @click="$router.push('/Iview')" class="rightOne">
+                <div class="inner leftInner">Iview</div>
             </div>
             <div @click="$router.push('/echarts')" class="right">
-                <div class="inner rightInner">echarts</div>
+                <div class="inner rightInner">Echarts</div>
             </div>
         </div>
     </div>
@@ -33,6 +39,18 @@ export default {
             height: 200px;
             color: springgreen;
             background: slateblue;
+        }
+        .leftOne {
+            width: 200px;
+            height: 200px;
+            color: darkblue;
+            background: lightblue;
+        }
+        .rightOne {
+            width: 200px;
+            height: 200px;
+            color: rgb(235, 37, 64);
+            background: darksalmon;
         }
         .right {
             width: 200px;

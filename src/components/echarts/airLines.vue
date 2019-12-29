@@ -1,30 +1,51 @@
-<!--  -->
+<!-- 折线图 -->
 <template>
-    <div class="elementContainer">
-        <div class="elementTitle">
-            element案例
-        </div>
-        <div class="container">
-            <Button />
-        </div>
+    <div class="airLinesContainer">
+        <div id="echart" class="airLinesContent" style="width: 600px; height: 400px"></div>
     </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-import Button from '../../components/element/button'
 export default {
     //import引入的组件需要注入到对象中才能使用
-    components: {
-        Button
-    },
+    components: {},
     data() {
         //这里存放数据
         return {}
     },
+
     //组件的方法集合
-    methods: {},
+    methods: {
+        drawChart() {
+            // 基于准备好的dom，初始化echarts实例
+            let myChart = this.$echarts.init(document.getElementById('echart'))
+            // 指定图表的配置项和数据
+            let option = {
+                title: {
+                    text: 'ECharts 入门示例'
+                },
+                tooltip: {},
+                legend: {
+                    data: ['销量']
+                },
+                xAxis: {
+                    data: ['衬衫', '羊毛衫', '雪纺衫', '裤子', '高跟鞋', '袜子']
+                },
+                yAxis: {},
+                series: [
+                    {
+                        name: '销量',
+                        type: 'bar',
+                        data: [5, 20, 36, 10, 10, 20]
+                    }
+                ]
+            }
+            // 使用刚指定的配置项和数据显示图表。
+            myChart.setOption(option)
+        }
+    },
     //监控data中的数据变化：一个数据影响多个数据
     watch: {},
     //监听属性：一个数据受多个数据影响
@@ -43,6 +64,7 @@ export default {
         // el 被新创建的 vm.el 替换，并挂载到实例上去之后调用该钩子。
         // 此钩子函数中一般会做一些ajax请求获取数据进行数据初始化,可访问DOM元素
         console.log('Home done')
+        this.drawChart()
     },
     beforeUpdate: function() {
         // 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。
@@ -62,13 +84,10 @@ export default {
 }
 </script>
 
-<style lang="less" rel="stylesheet/less">
-.elementContainer {
-    margin-top: 10px;
-    .container {
-        width: 100%;
-        height: 600px;
-        background: rgb(204, 200, 200);
-    }
+<style lang="less" scoped>
+//@import url(); 引入公共css类
+.airLinesContainer {
+    width: 800px;
+    height: 800px;
 }
 </style>
