@@ -1,6 +1,8 @@
-<!--  -->
+<!-- 侧边栏 -->
 <template>
-    <div class="demo"></div>
+    <div class="demo">
+        element-UI案例
+    </div>
 </template>
 
 <script>

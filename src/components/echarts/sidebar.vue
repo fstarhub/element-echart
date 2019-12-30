@@ -6,7 +6,8 @@
         </div>
         <div class="sideBarContent">
             <ol class="sideBarAll">
-                <li class="itemOne">折线图</li>
+                <li class="itemLine"><router-link to="/echarts/line">折线图</router-link></li>
+                <li class="itemPie"><router-link to="/echarts/pie">饼图</router-link></li>
             </ol>
         </div>
     </div>

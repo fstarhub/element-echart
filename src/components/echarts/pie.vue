@@ -1,7 +1,7 @@
-<!-- D3页 -->
+<!-- 饼图 -->
 <template>
-    <div class="dThreeContainer">
-        D3.js案例
+    <div class="pieContainer">
+        <div id="main" class="peiContent" style="height: 400px; width: 600px"></div>
     </div>
 </template>
 
@@ -16,7 +16,61 @@ export default {
         return {}
     },
     //组件的方法集合
-    methods: {},
+    methods: {
+        draw() {
+            let myChart = this.$echarts.init(document.getElementById('main'))
+            let option = {
+                title: {
+                    text: '这是一个饼图',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: '{a} <br/>{b}: {c} ({d}%)'
+                },
+                legend: {
+                    orient: 'vertical',
+                    x: 'left',
+                    data: ['直接访问', '邮件营销', '联盟广告', '视频广告', '搜索引擎']
+                },
+                series: [
+                    {
+                        name: '访问来源',
+                        type: 'pie',
+                        radius: ['50%', '70%'],
+                        avoidLabelOverlap: false,
+                        // color: ['red', 'blue', 'yellow', 'green', 'gray'],
+                        label: {
+                            normal: {
+                                show: false,
+                                position: 'center'
+                            },
+                            emphasis: {
+                                show: true,
+                                textStyle: {
+                                    fontSize: '30',
+                                    fontWeight: 'bold'
+                                }
+                            }
+                        },
+                        labelLine: {
+                            normal: {
+                                show: false
+                            }
+                        },
+                        data: [
+                            { value: 335, name: '直接访问' },
+                            { value: 310, name: '邮件营销' },
+                            { value: 234, name: '联盟广告' },
+                            { value: 135, name: '视频广告' },
+                            { value: 1548, name: '搜索引擎' }
+                        ]
+                    }
+                ]
+            }
+            myChart.setOption(option)
+        }
+    },
     //监控data中的数据变化：一个数据影响多个数据
     watch: {},
     //监听属性：一个数据受多个数据影响
@@ -35,6 +89,7 @@ export default {
         // el 被新创建的 vm.el 替换，并挂载到实例上去之后调用该钩子。
         // 此钩子函数中一般会做一些ajax请求获取数据进行数据初始化,可访问DOM元素
         console.log('Home done')
+        this.draw()
     },
     beforeUpdate: function() {
         // 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。
@@ -56,7 +111,4 @@ export default {
 
 <style lang="less" scoped>
 //@import url(); 引入公共css类
-.dThreeContainer {
-    margin-top: 10px;
-}
 </style>
