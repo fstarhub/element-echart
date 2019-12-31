@@ -7,6 +7,7 @@ import Dthree from '@/views/dThree/index.vue'
 import Iview from '@/views/iview/index.vue'
 import Line from '@/components/echarts/airLines.vue'
 import Pie from '@/components/echarts/pie.vue'
+import Liquid from '@/components/echarts/liquidFill.vue'
 
 Vue.use(Router)
 
@@ -31,6 +32,7 @@ export default new Router({
             path: '/echarts',
             name: 'Echarts',
             component: Echarts,
+            redirect: '/echarts/line',
             children: [
                 {
                     path: '/echarts/line',
@@ -39,6 +41,10 @@ export default new Router({
                 {
                     path: '/echarts/pie',
                     component: Pie
+                },
+                {
+                    path: 'liquidfill',
+                    component: Liquid
                 }
             ]
         },

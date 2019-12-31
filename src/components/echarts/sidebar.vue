@@ -8,6 +8,7 @@
             <ol class="sideBarAll">
                 <li class="itemLine"><router-link to="/echarts/line">折线图</router-link></li>
                 <li class="itemPie"><router-link to="/echarts/pie">饼图</router-link></li>
+                <li class="itemLiquidFill"><router-link to="/echarts/liquidfill">水球图</router-link></li>
             </ol>
         </div>
     </div>
