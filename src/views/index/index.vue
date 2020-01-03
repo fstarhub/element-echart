@@ -15,13 +15,19 @@
                 <div class="inner rightInner">Echarts</div>
             </div>
         </div>
+        <div class="test">
+            <Test></Test>
+        </div>
     </div>
 </template>
 
 <script>
+import Test from './test'
 export default {
     name: 'Index',
-    components: {}
+    components: {
+        Test
+    }
 }
 </script>
 
