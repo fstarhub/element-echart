@@ -1,7 +1,15 @@
 <!-- 侧边栏 -->
 <template>
-    <div class="demo">
-        element-UI案例
+    <div class="sidebarContainer">
+        <div class="sideBarTitle">
+            <p>element-ui案例</p>
+        </div>
+        <div class="sideBarContent">
+            <ul class="sideBarAll">
+                <li class="itemLine"><router-link to="/element/select">按钮与选择</router-link></li>
+                <li class="itemPie"><router-link to="/element/search">搜索table</router-link></li>
+            </ul>
+        </div>
     </div>
 </template>
 

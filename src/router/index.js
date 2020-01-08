@@ -9,6 +9,9 @@ import Line from '@/components/echarts/airLines.vue'
 import Pie from '@/components/echarts/pie.vue'
 import Liquid from '@/components/echarts/liquidFill.vue'
 
+import Select from '@/components/element/select.vue'
+import Search from '@/components/element/search.vue'
+
 Vue.use(Router)
 
 export default new Router({
@@ -26,7 +29,18 @@ export default new Router({
         {
             path: '/element',
             name: 'Element',
-            component: Element
+            component: Element,
+            redirect: '/element/select',
+            children: [
+                {
+                    path: 'select',
+                    component: Select
+                },
+                {
+                    path: 'search',
+                    component: Search
+                }
+            ]
         },
         {
             path: '/echarts',
