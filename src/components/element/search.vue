@@ -3,8 +3,7 @@
     <div>
         <el-input v-model="tableDataName" placeholder="请输入姓名" style="width:240px"></el-input>
         <el-button type="primary" @click="doFilter">搜索</el-button>
-        <el-table :data="tableDataEnd" border style="width: 100%"
-            >.
+        <el-table :data="tableDataEnd" border style="width: 100%">
             <el-table-column prop="date" label="日期" width="180"> </el-table-column>
             <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
             <el-table-column prop="address" label="地址"> </el-table-column>
