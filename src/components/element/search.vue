@@ -3,11 +3,10 @@
     <div>
         <el-input v-model="tableDataName" placeholder="请输入姓名" style="width:240px"></el-input>
         <el-button type="primary" @click="doFilter">搜索</el-button>
-        <el-table :data="tableDataEnd" border style="width: 100%"
-            >.
-            <el-table-column prop="date" label="日期" width="180"> </el-table-column>
-            <el-table-column prop="name" label="姓名" width="180"> </el-table-column>
-            <el-table-column prop="address" label="地址"> </el-table-column>
+        <el-table :data="tableDataEnd" border style="width: 100%">
+            <el-table-column prop="date" label="日期" width="180"></el-table-column>
+            <el-table-column prop="name" label="姓名" width="180"></el-table-column>
+            <el-table-column prop="address" label="地址"></el-table-column>
         </el-table>
         <el-pagination
             @size-change="handleSizeChange"
@@ -17,8 +16,9 @@
             :page-size="pageSize"
             layout="total, sizes, prev, pager, next, jumper"
             :total="totalItems"
-        >
-        </el-pagination>
+            next-text="下一页"
+            prev-text="上一页"
+        ></el-pagination>
     </div>
 </template>
 
@@ -86,7 +86,7 @@ export default {
     methods: {
         //前端搜索功能需要区分是否检索,因为对应的字段的索引不同
         //用两个变量接收currentChangePage函数的参数
-        dofilter() {
+        doFilter() {
             if (this.tableDataName == '') {
                 this.$message.warning('查询条件不能为空！')
                 return
