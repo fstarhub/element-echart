@@ -6,8 +6,12 @@
         </div>
         <div class="sideBarContent">
             <ul class="sideBarAll">
-                <li class="itemLine"><router-link to="/element/select">按钮与选择</router-link></li>
-                <li class="itemPie"><router-link to="/element/search">搜索table</router-link></li>
+                <li class="itemLine">
+                    <router-link to="/element/select">按钮与选择</router-link>
+                </li>
+                <li class="itemPie">
+                    <router-link to="/element/search">搜索table</router-link>
+                </li>
             </ul>
         </div>
     </div>
@@ -42,7 +46,6 @@ export default {
         // 编译好的HTML挂载到页面完成后执行的事件钩子
         // el 被新创建的 vm.el 替换，并挂载到实例上去之后调用该钩子。
         // 此钩子函数中一般会做一些ajax请求获取数据进行数据初始化,可访问DOM元素
-        console.log('Home done')
     },
     beforeUpdate: function() {
         // 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。
