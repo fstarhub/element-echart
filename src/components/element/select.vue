@@ -6,29 +6,28 @@
                 <el-radio label="同意" border>同意</el-radio>
             </el-radio-group>
             <el-button type="primary" :disabled="btnstatus" style="width: 180px;">提交订单</el-button>
-            <el-checkbox-group v-model="checkList">
-                <el-checkbox label="复选框 j" border></el-checkbox>
-                <el-checkbox label="复选框 q"></el-checkbox>
-                <el-checkbox label="复选框 k"></el-checkbox>
-                <el-button type="primary" @click="alertThing" style="width: 180px;">提交订单</el-button>
-            </el-checkbox-group>
-            <el-input placeholder="请输入内容" v-model="input" clearable show-password></el-input>
-            <el-time-picker
-                v-model="value1"
-                :picker-options="{
-      selectableRange: '18:30:00 - 20:30:00'
-    }"
-                placeholder="任意时间点"
-            ></el-time-picker>
-            <el-time-picker
-                arrow-control
-                v-model="value2"
-                :picker-options="{
-      selectableRange: '18:30:00 - 20:30:00'
-    }"
-                placeholder="任意时间点"
-            ></el-time-picker>
-            <el-button type="primary" @click="alertTime" style="width: 180px;">提交订单</el-button>
+            <el-form
+                :model="ruleForm"
+                status-icon
+                :rules="rules"
+                ref="ruleForm"
+                label-width="100px"
+                class="demo-ruleForm"
+            >
+                <el-form-item label="密码" prop="pass">
+                    <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="确认密码" prop="checkPass">
+                    <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
+                </el-form-item>
+                <el-form-item label="年龄" prop="age">
+                    <el-input v-model.number="ruleForm.age"></el-input>
+                </el-form-item>
+                <el-form-item>
+                    <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
+                    <el-button @click="resetForm('ruleForm')">重置</el-button>
+                </el-form-item>
+            </el-form>
         </div>
     </div>
 </template>
@@ -36,13 +35,54 @@
 <script>
 export default {
     data() {
+        var checkAge = (rule, value, callback) => {
+            if (!value) {
+                return callback(new Error('年龄不能为空'))
+            }
+            setTimeout(() => {
+                if (!Number.isInteger(value)) {
+                    callback(new Error('请输入数字值'))
+                } else {
+                    if (value < 18) {
+                        callback(new Error('必须年满18岁'))
+                    } else {
+                        callback()
+                    }
+                }
+            }, 1000)
+        }
+        var validatePass = (rule, value, callback) => {
+            if (value === '') {
+                callback(new Error('请输入密码'))
+            } else {
+                if (this.ruleForm.checkPass !== '') {
+                    this.$refs.ruleForm.validateField('checkPass')
+                }
+                callback()
+            }
+        }
+        var validatePass2 = (rule, value, callback) => {
+            if (value === '') {
+                callback(new Error('请再次输入密码'))
+            } else if (value !== this.ruleForm.pass) {
+                callback(new Error('两次输入密码不一致!'))
+            } else {
+                callback()
+            }
+        }
         return {
             radioTreaty: '1',
             btnstatus: true,
-            checkList: [],
-            input: '',
-            value1: new Date(2020, 0, 15, 18, 40),
-            value2: new Date(2020, 0, 14, 18, 40) // 2020年1月14日18点40
+            ruleForm: {
+                pass: '',
+                checkPass: '',
+                age: ''
+            },
+            rules: {
+                pass: [{ validator: validatePass, trigger: 'blur' }],
+                checkPass: [{ validator: validatePass2, trigger: 'blur' }],
+                age: [{ validator: checkAge, trigger: 'blur' }]
+            }
         }
     },
     methods: {
@@ -50,12 +90,18 @@ export default {
             console.log(this.radioTreaty)
             this.btnstatus = val === '不同意' ? true : false
         },
-        alertThing() {
-            console.log(this.checkList)
+        submitForm(formName) {
+            this.$refs[formName].validate(valid => {
+                if (valid) {
+                    alert('submit!')
+                } else {
+                    console.log('error submit!!')
+                    return false
+                }
+            })
         },
-        alertTime() {
-            console.log(this.value1)
-            console.log(this.value2)
+        resetForm(formName) {
+            this.$refs[formName].resetFields()
         }
     },
     mounted: function() {}
