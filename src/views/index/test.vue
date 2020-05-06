@@ -1,7 +1,8 @@
 <!-- 测试 -->
 <template>
     <div class="demo">
-        textarea
+        <p>textarea</p>
+        <p>title</p>
     </div>
 </template>
 
@@ -62,4 +63,5 @@ export default {
 
 <style lang="less" scoped>
 //@import url(); 引入公共css类
+
 </style>

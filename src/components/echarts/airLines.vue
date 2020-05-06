@@ -2,18 +2,26 @@
 <template>
     <div class="airLinesContainer">
         <div id="echart" class="airLinesContent" style="width: 600px; height: 400px"></div>
+        <p>{{title}}</p>
+        <child v-bind:message='msg' v-on:toDo='doConsole'></child>
     </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
+import Child from './Child.vue'
 export default {
     //import引入的组件需要注入到对象中才能使用
-    components: {},
+    components: {
+        Child,
+    },
     data() {
         //这里存放数据
-        return {}
+        return {
+            msg:'zhangsan',
+            title: '父组件原有得值'
+        }
     },
 
     //组件的方法集合
@@ -44,6 +52,11 @@ export default {
             }
             // 使用刚指定的配置项和数据显示图表。
             myChart.setOption(option)
+        },
+        // 自定义事件（子向父传值）
+        doConsole(thing) {
+            this.title=thing
+            console.log(thing)
         }
     },
     //监控data中的数据变化：一个数据影响多个数据
