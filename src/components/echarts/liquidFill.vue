@@ -2,6 +2,21 @@
 <template>
     <div class="liquidFillContainer">
         <div id="liquidFill" class="liquidFillContent"></div>
+        <Child :nameList='nameList'>
+            <!-- 具名插槽，要使用template模板 -->
+            <template slot="top">
+                <div>
+                    <h5>header</h5>
+                </div>
+            </template>
+            <!-- 默认插槽 -->
+            <h4>fillChild</h4>
+            <!-- 作用域插槽 -->
+            <template slot-scope="bottom">
+                <span>{{bottom}}</span>
+            </template>
+            
+        </Child>
     </div>
 </template>
 
@@ -10,12 +25,23 @@
 //例如：import 《组件名称》 from '《组件路径》';
 import echarts from 'echarts'
 import liquidfill from 'echarts-liquidfill'
+import Child from './liquidFillChild'
 export default {
     //import引入的组件需要注入到对象中才能使用
-    components: {},
+    components: {
+        Child
+    },
     data() {
         //这里存放数据
-        return {}
+        return {
+            nameList:[
+            {id:1,name:'孙悟空'},
+            {id:2,name:'猪八戒'},
+            {id:3,name:'沙和尚'},
+            {id:4,name:'唐僧'},
+            {id:5,name:'小白龙'},
+            ]
+        }
     },
     //组件的方法集合
     methods: {

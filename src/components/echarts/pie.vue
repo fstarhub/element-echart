@@ -96,7 +96,6 @@ export default {
         // 编译好的HTML挂载到页面完成后执行的事件钩子
         // el 被新创建的 vm.el 替换，并挂载到实例上去之后调用该钩子。
         // 此钩子函数中一般会做一些ajax请求获取数据进行数据初始化,可访问DOM元素
-        console.log('Home done')
         this.draw()
         this.$EventBus.$on('child-data',(data)=>{
             this.pieMsg=data
@@ -112,6 +111,8 @@ export default {
     },
     beforeDestroy: function() {
         // 实例销毁之前调用。在这一步，实例仍然完全可用。
+        //组件销毁时解除事件绑定
+        this.$EventBus.$off('child-data')
     },
     destroyed: function() {
         // Vue 实例销毁后调用。调用后，Vue 实例指示的所有东西都会解绑定，所有的事件监听器会被移除，所有的子实例也会被销毁。 该钩子在服务器端渲染期间不被调用。
