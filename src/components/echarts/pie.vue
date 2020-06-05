@@ -2,18 +2,26 @@
 <template>
     <div class="pieContainer">
         <div id="main" class="peiContent" style="height: 400px; width: 600px"></div>
+        <p>父组件标题---{{pieMsg}}</p>
+        <hr/>
+        <pie-child></pie-child>
     </div>
 </template>
 
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
+import pieChild from './pie-child'
 export default {
     //import引入的组件需要注入到对象中才能使用
-    components: {},
+    components: {
+        pieChild
+    },
     data() {
         //这里存放数据
-        return {}
+        return {
+            pieMsg:'title'
+        }
     },
     //组件的方法集合
     methods: {
@@ -90,6 +98,9 @@ export default {
         // 此钩子函数中一般会做一些ajax请求获取数据进行数据初始化,可访问DOM元素
         console.log('Home done')
         this.draw()
+        this.$EventBus.$on('child-data',(data)=>{
+            this.pieMsg=data
+        })
     },
     beforeUpdate: function() {
         // 数据更新时调用，发生在虚拟 DOM 重新渲染和打补丁之前。 你可以在这个钩子中进一步地更改状态，这不会触发附加的重渲染过程。

@@ -22,6 +22,89 @@
             //     res.push(JSON.parse(JSON.stringify(temp)));
             // }
             // console.log(res)
+
+
+            // var arr=[1,2,[3],[5,[6,7]]]
+            // console.log(arr instanceof Array)
+            // var ary = arr.toString().replace(/(\[|\])/g, '')
+            // console.log(ary)
+            // function result (arr) {
+            //     // var newArr=[]
+            //     arr.forEach(element => {
+            //         if((element instanceof Array)==false) {
+            //             var newArr=newArr.push(element)
+            //             console.log(newArr1)
+            //             // var newArr2=newArr1.concat(newArr1)
+            //             // console.log(newArr2)
+            //         }else {
+            //             console.log(element)
+            //             result(element)
+            //         }
+            //     });
+            //     return newArr
+            // }
+            // result(arr)
+
+
+            // console.log(1)
+            // async function async1() {
+            //     console.log(2)
+            //     async2()
+            //     console.log(3)
+            // }
+            // async function async2() {
+            //     console.log(4)
+            // }
+            // async1()
+            // setTimeout(function(){
+            //     console.log(5)
+            // },0)
+            // var p=new Promise((resolve ,reject)=>{
+            //     console.log(6)
+            //     resolve()
+            // })
+            // .then(
+            //     (resolve)=>{console.log(7)}
+            // )
+            // console.log(8)
+
+            let arr = [
+                    ['前端','3人','8-15k','本科'],
+                    ['后端','5人','10-25k','研究生'],
+                    ['UI','2人','9-11k','大专'],
+                    ['ETL工程师','10人','6-12k','大专'],
+                    ];
+                    // console.log(arr)
+                    // function transformData (arr) {
+                    //     var length=arr.length;
+                    //     var index=arr[1].length
+                    //     var newArr=[]
+                    //     for(let i=0;i<length-1;i++){
+                    //         newArr[i]=arr[i][i]
+                            
+                    //         console.log(newArr)
+
+                            
+                    //         // return newArr
+                    //     }
+
+                    // }
+                    // transformData(arr)
+
+                    
+
+                        function foo(a){
+                            var b=4;
+
+                            return function fool(){
+                                return a*b;
+                            }
+                            return 90
+                        }
+                        var result = foo(7);
+
+                        alert(result());
+
         </script>
     </body>
 </html>
