@@ -1,7 +1,16 @@
+/*
+ * @Author: Jenny
+ * @Date: 2020-06-04 16:49:14 
+ * @Last Modified by:   mikey.zhaopeng 
+ * @Last Modified time: 2020-06-04 16:49:14 
+ */
 <!-- iview页 -->
 <template>
+
     <div class="iveiwContainer">
-        iview案例
+        <p>iview案例</p>
+        <div class="left">123</div>
+    　　<div class="right">456</div>
     </div>
 </template>
 
@@ -59,4 +68,7 @@ export default {
 .iveiwContainer {
     margin-top: 10px;
 }
+.left{float:left;width:300px;background:#F00;}
+
+.right{margin-left:300px;background:#00F;}
 </style>
