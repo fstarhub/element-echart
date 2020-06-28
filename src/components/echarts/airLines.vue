@@ -20,7 +20,7 @@ export default {
     data() {
         //这里存放数据
         return {
-            msg:'zhangsan',
+            msg:'zhangdasan',
             title: '父组件原有得值',
         }
     },
