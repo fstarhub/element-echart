@@ -9,6 +9,11 @@ import echarts from 'echarts'
 import ElementUI from 'element-ui'
 import 'element-ui/lib/theme-chalk/index.css'
 
+// 引入mock
+import './mock/mockjs'
+import axios from 'axios'
+Vue.prototype.$axios=axios
+
 Vue.config.productionTip = false
 
 // 事件总线（跨组件通信）（写法一）

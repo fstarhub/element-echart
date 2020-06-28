@@ -13,7 +13,7 @@
             <h4>fillChild</h4>
             <!-- 作用域插槽 -->
             <template slot-scope="bottom">
-                <span>{{bottom}}</span>
+                <span>{{bottom}}--作用域</span>
             </template>
             
         </Child>

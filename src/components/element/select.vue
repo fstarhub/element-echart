@@ -29,6 +29,14 @@
                 </el-form-item>
             </el-form>
         </div>
+            <el-row>
+                <el-button round @click='getMock'>mock1</el-button>
+                <el-button type="primary" round>主要按钮</el-button>
+                <el-button type="success" round>成功按钮</el-button>
+                <el-button type="info" round>信息按钮</el-button>
+                <el-button type="warning" round>警告按钮</el-button>
+                <el-button type="danger" round>危险按钮</el-button>
+            </el-row>
         <p>年龄{{age}}</p>
         <p>名字{{name}}</p>
         <p>英雄{{person}}</p>
@@ -96,6 +104,8 @@ export default {
             this.btnstatus = val === '不同意' ? true : false
         },
         submitForm(formName) {
+            const {pass,checkPass,age}=this.ruleForm
+            console.log(pass,checkPass,age)
             this.$refs[formName].validate(valid => {
                 if (valid) {
                     alert('submit!')
@@ -108,6 +118,12 @@ export default {
         resetForm(formName) {
             this.$refs[formName].resetFields()
         },
+        // mock1
+        getMock(){
+            this.$axios.get('/echart')
+            .then((res)=>{console.log(res)})
+            .catch((err)=>{console.log(err)})
+        }
         
         // 方法一 组件里面提交mutation的方法
         // ...mapMutations(['GETHROS'])
