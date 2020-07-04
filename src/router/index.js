@@ -8,6 +8,7 @@ import Iview from '@/views/iview/index.vue'
 import Line from '@/components/echarts/airLines.vue'
 import Pie from '@/components/echarts/pie.vue'
 import Liquid from '@/components/echarts/liquidFill.vue'
+import project from '@/components/echarts/project.vue'
 
 import Select from '@/components/element/select.vue'
 import Search from '@/components/element/search.vue'
@@ -59,6 +60,10 @@ export default new Router({
                 {
                     path: 'liquidfill',
                     component: Liquid
+                },
+                {
+                    path: 'project',
+                    component: project
                 }
             ]
         },

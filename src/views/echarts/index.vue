@@ -86,10 +86,10 @@ export default {
         background: darkcyan;
     }
     .contentArea {
-        float: left;
         overflow: hidden;
-        width: 80%;
+        margin-left: 200px;
         // background: red;
+        overflow: hidden;
     }
 }
 </style>
