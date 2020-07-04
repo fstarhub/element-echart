@@ -45,7 +45,7 @@ export default {
           },
           series: [
             {
-              name: '访问来源',
+              name: '风电数据',
               type: 'pie',
               // left: '-150',
               // top: '-40',
