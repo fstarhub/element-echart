@@ -114,6 +114,35 @@ export default {
                     return false
                 }
             })
+            var arr = [
+                {
+                    name: 'zhangsan',
+                    id: '239876',
+                    like: 'ball'
+                },
+                {
+                    name: 'lisi',
+                    id: '8968767',
+                    like: 'pingpang'
+                },
+                {
+                    name: 'waner',
+                    id: '909090',
+                    like: 'zuqiu'
+                },
+                {
+                    name: 'zhaoai',
+                    id: '1212',
+                    like: 'haha'
+                },
+            ]
+            const myNum = '1212'
+            var getItem = function (item) {
+                return item.id === myNum
+            }
+            var arr1 = arr.find(getItem)
+            
+            console.log(arr1,'arr112')
         },
         resetForm(formName) {
             this.$refs[formName].resetFields()

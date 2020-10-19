@@ -21,6 +21,12 @@ Vue.prototype.$EventBus=new Vue()
 // 事件总线（跨组件通信）（写法三）
 Vue.prototype.$eventHub= Vue.prototype.$eventHub ||  new Vue()
 
+// 使用vxe-table
+import 'xe-utils'
+import VXETable from 'vxe-table'
+import 'vxe-table/lib/style.css'
+Vue.use(VXETable)
+
 Vue.prototype.$echarts = echarts
 Vue.use(ElementUI)
 /* eslint-disable no-new */

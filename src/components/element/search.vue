@@ -19,10 +19,26 @@
             next-text="下一页"
             prev-text="上一页"
         ></el-pagination>
+        <div class="wrapper" ref="scroll">
+            <ul class="content">
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+                <li>11</li>
+            </ul>
+        </div>
     </div>
 </template>
 
 <script>
+import BScroll from 'better-scroll'
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
 export default {
@@ -82,11 +98,19 @@ export default {
             flag: false
         }
     },
+    mounted() {
+        // this.initBetterScroll()
+        this.$nextTick(() => { 
+            this.init()
+                
+        })
+    },
     //组件的方法集合
     methods: {
         //前端搜索功能需要区分是否检索,因为对应的字段的索引不同
         //用两个变量接收currentChangePage函数的参数
         doFilter() {
+            this.init()
             if (this.tableDataName == '') {
                 this.$message.warning('查询条件不能为空！')
                 return
@@ -134,6 +158,15 @@ export default {
                     this.tableDataEnd.push(list[from])
                 }
             }
+        },
+        //better-scroll
+        init() {
+            console.log('aahh')
+            this.scroll = new BScroll(this.$refs.scroll, {
+                scrollY: true,
+                click: true
+            })
+            console.log(this.scroll)
         }
     },
     //监控data中的数据变化：一个数据影响多个数据
@@ -211,4 +244,14 @@ export default {
 
 <style lang="less" scoped>
 //@import url(); 引入公共css类
+.wrapper {
+    width: 100%;
+    height: 50px;
+    background: pink;
+    overflow: hidden;
+    position: relative;
+    ul {
+        margin: 0
+    }
+}
 </style>

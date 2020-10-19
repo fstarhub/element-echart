@@ -8,11 +8,14 @@
             <div @click="$router.push('/Dthree')" class="leftOne">
                 <div class="inner leftInner">D3.js</div>
             </div>
-            <div @click="$router.push('/Iview')" class="rightOne">
+            <div @click="$router.push('/Iview')" class="center">
                 <div class="inner leftInner">Iview</div>
             </div>
-            <div @click="$router.push('/echarts')" class="right">
+            <div @click="$router.push('/echarts')" class="rightOne">
                 <div class="inner rightInner">Echarts</div>
+            </div>
+            <div @click="$router.push('/echarts')" class="right">
+                <div class="inner rightInner">vxe-table</div>
             </div>
         </div>
         <div class="test">
@@ -52,6 +55,12 @@ export default {
             color: darkblue;
             background: lightblue;
         }
+        .center {
+            width: 200px;
+            height: 200px;
+            color: rgb(235, 37, 64);
+            background: darksalmon;
+        }
         .rightOne {
             width: 200px;
             height: 200px;
@@ -61,8 +70,8 @@ export default {
         .right {
             width: 200px;
             height: 200px;
-            color: fuchsia;
-            background: darkkhaki;
+            color: rgb(59, 30, 226);
+            background: rgb(42, 169, 207);
         }
         .inner {
             margin-top: 45%;
