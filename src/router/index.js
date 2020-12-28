@@ -16,66 +16,63 @@ import Search from '@/components/element/search.vue'
 Vue.use(Router)
 
 export default new Router({
-    mode: 'history', // 地址栏没有#
-    routes: [
-        {
-            path: '/',
-            redirect: '/index'
+  mode: 'history', // 地址栏没有#
+  routes: [{
+      path: '/',
+      redirect: '/index'
+    },
+    {
+      path: '/index',
+      name: 'Index',
+      component: Index
+    },
+    {
+      path: '/element',
+      name: 'Element',
+      component: Element,
+      redirect: '/element/select',
+      children: [{
+          path: 'select',
+          component: Select
         },
         {
-            path: '/index',
-            name: 'Index',
-            component: Index
-        },
-        {
-            path: '/element',
-            name: 'Element',
-            component: Element,
-            redirect: '/element/select',
-            children: [
-                {
-                    path: 'select',
-                    component: Select
-                },
-                {
-                    path: 'search',
-                    component: Search
-                }
-            ]
-        },
-        {
-            path: '/echarts',
-            name: 'Echarts',
-            component: Echarts,
-            redirect: '/echarts/line',
-            children: [
-                {
-                    path: '/echarts/line',
-                    component: Line
-                },
-                {
-                    path: '/echarts/pie',
-                    component: Pie
-                },
-                {
-                    path: 'liquidfill',
-                    component: Liquid
-                },
-                {
-                    path: 'project',
-                    component: project
-                }
-            ]
-        },
-        {
-            path: '/dthree',
-            name: 'Dthree',
-            component: Dthree
-        },
-        {
-            path: '/iview',
-            name: 'Iview',
-            component: Iview
+          path: 'search',
+          component: Search
         }
-    ]
+      ]
+    },
+    {
+      path: '/echarts',
+      name: 'Echarts',
+      component: Echarts,
+      redirect: '/echarts/line',
+      children: [{
+          path: '/echarts/line',
+          component: Line
+        },
+        {
+          path: '/echarts/pie',
+          component: Pie
+        },
+        {
+          path: 'liquidfill',
+          component: Liquid
+        },
+        {
+          path: 'project',
+          component: project
+        }
+      ]
+    },
+    {
+      path: '/dthree',
+      name: 'Dthree',
+      component: Dthree
+    },
+    {
+      path: '/iview',
+      name: 'Iview',
+      component: Iview
+    }
+  ]
 })
