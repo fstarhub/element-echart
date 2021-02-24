@@ -12,7 +12,7 @@ module.exports = {
     assetsPublicPath: '/',
     proxyTable: {
       '/api': {
-        target: " https://easy-mock.com/mock/5eaf8b1da47fe9570ba134cf/example", // API服务所在IP及端口号
+        target: "https://mock.mengxuegu.com/mock/6035fa1eca363222f3d579e6/example", // API服务所在IP及端口号
         changeOrigin: true, // 如果设置为true,那么本地会虚拟一个服务器接收你的请求并代你发送该请求，这样就不会有跨域问题（只适合开发环境）
         pathRewrite: {
           '^/api': '' // 重写路径

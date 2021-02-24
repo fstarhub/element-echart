@@ -1,7 +1,9 @@
 
 //
 export default {
+  herosData:[],
   name:'',
-  age: NaN,
-  person:'',
+  age: 0,
+  arms:'',
+  person: '',
 }

@@ -1,8 +1,9 @@
 <!-- 测试 -->
 <template>
   <div class="demo">
-    <p>textarea</p>
     <p>title</p>
+    <p><el-input v-model="name"></el-input><el-input v-model="age"></el-input></p>
+    <!-- <p>计算属性{{people}}</p> -->
   </div>
 </template>
 
@@ -19,15 +20,36 @@ export default {
         { name: 'zhangsan', text: 'wide' },
         { name: 'lishi', text: 'yin' },
         { name: 'wanwu', text: 'xue' }
-      ]
+      ],
+      name: 'zhangsan',
+      age: 14,
     }
   },
   //组件的方法集合
   methods: {},
   //监控data中的数据变化：一个数据影响多个数据
-  watch: {},
+  watch: {
+    // name: function() {
+    //   console.log('haha')
+    // }
+  },
   //监听属性：一个数据受多个数据影响
-  computed: {},
+  computed: {
+    // 方法1
+    // people: function() {
+    //   return this.name + this.age
+    // }
+    // 方法2
+    people: {
+      // getter
+      get: function() {
+        return this.name + this.age
+      },
+      // setter
+      // set: function(val) {
+      // }
+    }
+  },
   beforeCreate: function () {
     // 在实例初始化之后，数据观测(data observer) 和 event/watcher 事件配置之前被调用。
   },

@@ -1,192 +1,76 @@
 <template>
     <div class="selectContainer">
         <div class="radioContent">
-            <el-radio-group v-model="radioTreaty" @change="agreeChange">
-                <el-radio label="不同意" border>不同意</el-radio>
-                <el-radio label="同意" border>同意</el-radio>
-            </el-radio-group>
-            <el-button type="primary" :disabled="btnstatus" style="width: 180px;">提交订单</el-button>
-            <el-form
-                :model="ruleForm"
-                status-icon
-                :rules="rules"
-                ref="ruleForm"
-                label-width="100px"
-                class="demo-ruleForm"
-            >
-                <el-form-item label="密码" prop="pass">
-                    <el-input type="password" v-model="ruleForm.pass" autocomplete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="确认密码" prop="checkPass">
-                    <el-input type="password" v-model="ruleForm.checkPass" autocomplete="off"></el-input>
-                </el-form-item>
-                <el-form-item label="年龄" prop="age">
-                    <el-input v-model.number="ruleForm.age"></el-input>
-                </el-form-item>
-                <el-form-item>
-                    <el-button type="primary" @click="submitForm('ruleForm')">提交</el-button>
-                    <el-button @click="resetForm('ruleForm')">重置</el-button>
-                </el-form-item>
-            </el-form>
-        </div>
             <el-row>
-                <el-button round @click='getMock'>mock1</el-button>
-                <el-button type="primary" round>主要按钮</el-button>
+                <el-button round @click="getMock">获取英雄</el-button>
+                <el-button type="primary" round @click="getEasyMock">easyMock</el-button>
                 <el-button type="success" round>成功按钮</el-button>
                 <el-button type="info" round>信息按钮</el-button>
                 <el-button type="warning" round>警告按钮</el-button>
                 <el-button type="danger" round>危险按钮</el-button>
             </el-row>
-        <p>年龄{{age}}</p>
-        <p>名字{{name}}</p>
-        <p>英雄{{person}}</p>
+        </div>
+        <p>年龄{{ age }}</p>
+        <p>名字{{ name }}</p>
+        <p>英雄{{ person }}</p>
         <!-- <button @click='manwei'>触发事件</button> -->
     </div>
 </template>
 
 <script>
-import {mapState,mapMutations,mapActions} from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
-    data() {
-        var checkAge = (rule, value, callback) => {
-            if (!value) {
-                return callback(new Error('年龄不能为空'))
-            }
-            setTimeout(() => {
-                if (!Number.isInteger(value)) {
-                    callback(new Error('请输入数字值'))
-                } else {
-                    if (value < 18) {
-                        callback(new Error('必须年满18岁'))
-                    } else {
-                        callback()
-                    }
-                }
-            }, 1000)
-        }
-        var validatePass = (rule, value, callback) => {
-            if (value === '') {
-                callback(new Error('请输入密码'))
-            } else {
-                if (this.ruleForm.checkPass !== '') {
-                    this.$refs.ruleForm.validateField('checkPass')
-                }
-                callback()
-            }
-        }
-        var validatePass2 = (rule, value, callback) => {
-            if (value === '') {
-                callback(new Error('请再次输入密码'))
-            } else if (value !== this.ruleForm.pass) {
-                callback(new Error('两次输入密码不一致!'))
-            } else {
-                callback()
-            }
-        }
-        return {
-            radioTreaty: '1',
-            btnstatus: true,
-            ruleForm: {
-                pass: '',
-                checkPass: '',
-                age: ''
-            },
-            rules: {
-                pass: [{ validator: validatePass, trigger: 'blur' }],
-                checkPass: [{ validator: validatePass2, trigger: 'blur' }],
-                age: [{ validator: checkAge, trigger: 'blur' }]
-            }
-        }
-    },
-    methods: {
-        agreeChange(val) {
-            console.log(this.radioTreaty)
-            this.btnstatus = val === '不同意' ? true : false
-        },
-        submitForm(formName) {
-            const {pass,checkPass,age}=this.ruleForm
-            console.log(pass,checkPass,age)
-            this.$refs[formName].validate(valid => {
-                if (valid) {
-                    alert('submit!')
-                } else {
-                    console.log('error submit!!')
-                    return false
-                }
-            })
-            var arr = [
-                {
-                    name: 'zhangsan',
-                    id: '239876',
-                    like: 'ball'
-                },
-                {
-                    name: 'lisi',
-                    id: '8968767',
-                    like: 'pingpang'
-                },
-                {
-                    name: 'waner',
-                    id: '909090',
-                    like: 'zuqiu'
-                },
-                {
-                    name: 'zhaoai',
-                    id: '1212',
-                    like: 'haha'
-                },
-            ]
-            const myNum = '1212'
-            var getItem = function (item) {
-                return item.id === myNum
-            }
-            var arr1 = arr.find(getItem)
-            
-            console.log(arr1,'arr112')
-        },
-        resetForm(formName) {
-            this.$refs[formName].resetFields()
-        },
-        // mock1
-        getMock(){
-            this.$axios.get('/echart')
-            .then((res)=>{console.log(res)})
-            .catch((err)=>{console.log(err)})
-        }
-        
-        // 方法一 组件里面提交mutation的方法
-        // ...mapMutations(['GETHROS'])
-        // 方法二 组件里面提交mutation的方法
-        // ...mapMutations({
-        //     add: 'GETHROS'
-        // })
-        
-        // 方法二 组件里面分发actions
-        // ...mapActions(['getHeros'])
-        // 方法三 组件里面分发actions
-        // ...mapActions({
-        //     add:'getHeros'
-        //     })
-    },
-    computed:{
-        // 方法一 组件里面获取state中的状态值
-        // ...mapState({ 
-        //     name:state=>state.name,
-        //     age:state=>state.age,
-        // }),
-
-        // 方法二 组件里面获取state中的状态值
-        ...mapState(['person','age','name',])
-
-        // 方法三 组件里面获取state中的状态值
-        // manwei() {
-        //     return this.$store.state.name
-        // }
-    },
-    mounted: function() {
-        // 方法一 组件里面分发actions
-        this.$store.dispatch('getHeros')
+  data() {
+    return {
     }
+  },
+  methods: {
+    // mock1
+    getMock() {
+      this.$store.dispatch('getHeros')
+      this.$axios.get('/echart')
+        .then((res) => { console.log(res) })
+        .catch((err) => { console.log(err) })
+    },
+    getEasyMock() {
+      this.$axios.get('https://mock.mengxuegu.com/mock/6035fa1eca363222f3d579e6/example/getHeros')
+        .then((res) => { console.log(res) })
+        .catch((err) => { console.log(err) })
+    }
+
+    // 方法一 组件里面提交mutation的方法
+    // ...mapMutations(['GETHROS'])
+    // 方法二 组件里面提交mutation的方法
+    // ...mapMutations({
+    //     add: 'GETHROS'
+    // })
+
+    // 方法二 组件里面分发actions
+    // ...mapActions(['getHeros'])
+    // 方法三 组件里面分发actions
+    // ...mapActions({
+    //     add:'getHeros'
+    //     })
+  },
+  computed: {
+    // 方法一 组件里面获取state中的状态值
+    // ...mapState({ 
+    //     name:state=>state.name,
+    //     age:state=>state.age,
+    // }),
+
+    // 方法二 组件里面获取state中的状态值
+    ...mapState(['person', 'age', 'name',])
+
+    // 方法三 组件里面获取state中的状态值
+    // manwei() {
+    //     return this.$store.state.name
+    // }
+  },
+  mounted: function () {
+    // 方法一 组件里面分发actions
+    // this.$store.dispatch('getHeros')
+  }
 }
 </script>
 
