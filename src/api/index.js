@@ -7,3 +7,8 @@ export const reqHeros = axios ({
   method: 'get',
   url: BASE+'/getHeros'
 })
+export const reqFileMessage = axios ({
+  method: 'post',
+  url: BASE+'/filmMessage'
+})
+// export default{reqHeros, reqFileMessage}
