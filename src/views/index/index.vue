@@ -27,7 +27,7 @@
         <div class="inner rightInner">Echarts</div>
       </div>
       <div
-        @click="$router.push('/echarts')"
+        @click="$router.push('/vexTable')"
         class="right"
       >
         <div class="inner rightInner">vxe-table</div>

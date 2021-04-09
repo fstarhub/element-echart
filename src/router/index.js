@@ -9,6 +9,7 @@ import Line from '@/components/echarts/airLines.vue'
 import Pie from '@/components/echarts/pie.vue'
 import Liquid from '@/components/echarts/liquidFill.vue'
 import project from '@/components/echarts/project.vue'
+import VxeTable from '@/views/vxeTable/index.vue'
 
 import Select from '@/components/element/select.vue'
 import Search from '@/components/element/search.vue'
@@ -17,7 +18,8 @@ Vue.use(Router)
 
 export default new Router({
   mode: 'history', // 地址栏没有#
-  routes: [{
+  routes: [
+    {
       path: '/',
       redirect: '/index'
     },
@@ -73,6 +75,11 @@ export default new Router({
       path: '/iview',
       name: 'Iview',
       component: Iview
+    },
+    {
+      path: '/vexTable',
+      name: 'VexTable',
+      component: VxeTable
     }
   ]
 })
