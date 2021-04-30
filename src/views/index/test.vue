@@ -4,6 +4,9 @@
     <p>title</p>
     <p><el-input v-model="name"></el-input><el-input v-model="age"></el-input></p>
     <!-- <p>计算属性{{people}}</p> -->
+    <img :src="vcUrl">
+    <!-- <img src="https://img1.baidu.com/it/u=1642572855,2753515187&fm=26&fmt=auto&gp=0.jpg"> -->
+    <!-- <el-image style="width: 100px; height: 100px" src="https://api.wuzhen.my5v.com/regist/getVerifyCode?t=1619758809000"></el-image> -->
   </div>
 </template>
 
@@ -16,6 +19,7 @@ export default {
   data() {
     //这里存放数据
     return {
+      vcUrl: 'https://api.wuzhen.my5v.com/regist/getVerifyCode?t=1619758809000',
       todos: [
         { name: 'zhangsan', text: 'wide' },
         { name: 'lishi', text: 'yin' },
