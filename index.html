@@ -101,6 +101,36 @@
                         // var result = foo(7);
 
                         // alert(result());
+            var arr = [
+                {
+                    data: '2021',
+                    list: [{id:1,cost:100,total:'123'},{id:1,cost:100,total:'ew李四'},{id:1,cost:'',total:'ewww'},{id:1,cost:6,total:'hhahaa'},]
+                },
+                {
+                    data: '2021',
+                    list: [{id:1,cost:100,total:'shai'},{id:1,cost:100,total:'zhangsan'},{id:1,cost:'',total:'4343'},{id:1,cost:null,total:'222'},]
+                },
+            ]
+            var newArr = arr.filter(item => !item.list.some(el => el.cost === null || el.cost === '' ))
+            // var newArr1 = arr.map(item =>{
+            //     item.list.forEach((el, index) => {
+            //         if (el.cost === null || el.cost === '') {
+            //             item.list.splice(index,1)
+            //         }
+            //     })
+            //     return item
+            // })
+            // var newArr1 = arr.map(item =>{
+            //     item.list = item.list.filter((el, index) => {
+            //         return el.cost != null && el.cost !=''
+            //     })
+            //     return item
+            // })
+            var newArr1 = arr.map(item =>{
+                item.list = item.list.filter(el => el.cost != null && el.cost !='')
+                return item
+            })
+            console.log(newArr,newArr1, '----')
         </script>
     </body>
 </html>

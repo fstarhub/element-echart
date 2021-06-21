@@ -14,7 +14,7 @@
             <div @click="$router.push('/echarts')" class="rightOne">
                 <div class="inner rightInner">Echarts</div>
             </div>
-            <div @click="$router.push('/echarts')" class="right">
+            <div @click="$router.push('/vxeTable')" class="right">
                 <div class="inner rightInner">vxe-table</div>
             </div>
         </div>

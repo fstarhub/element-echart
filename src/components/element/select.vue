@@ -29,6 +29,32 @@
                 </el-form-item>
             </el-form>
         </div>
+        <el-table
+            :data="tableData1"
+            style="width: 100%;margin-bottom: 20px;"
+            row-key="id"
+            border
+            default-expand-all
+            :tree-props="{children: 'children', hasChildren: 'hasChildren'}">
+            <el-table-column
+            label="序号"
+            :formatter="formatIndex"
+            width="80">
+            </el-table-column>
+            <el-table-column
+            prop="time"
+            label="时段类型"
+            width="80">
+            </el-table-column>
+            <el-table-column
+            prop="energy"
+            label="电量">
+            </el-table-column>
+            <el-table-column
+            prop="price"
+            label="电价">
+            </el-table-column>
+        </el-table>
             <el-row>
                 <el-button round @click='getMock'>mock1</el-button>
                 <el-button type="primary" round>主要按钮</el-button>
@@ -95,10 +121,104 @@ export default {
                 pass: [{ validator: validatePass, trigger: 'blur' }],
                 checkPass: [{ validator: validatePass2, trigger: 'blur' }],
                 age: [{ validator: checkAge, trigger: 'blur' }]
-            }
+            },
+            tableData1: []
         }
     },
+    mounted: function() {
+        // 方法一 组件里面分发actions
+        this.$store.dispatch('getHeros')
+        this.init()
+    },
     methods: {
+        init() {
+            var message = [
+                {
+                    timepart1: 1,
+                    time: 'shijian1',
+                    energy: '342',
+                    price: '3435',
+                },
+                {
+                    timepart1: 1,
+                    time: 'shijian1',
+                    energy: '342',
+                    price: '3435',
+                },
+                {
+                    timepart1: 1,
+                    time: 'shijian1',
+                    energy: '342',
+                    price: '3435',
+                },
+                {
+                    timepart1: 2,
+                    time: 'shijian2',
+                    energy: '342',
+                    price: '3435',
+                },
+                {
+                    timepart1: 2,
+                    time: 'shijian2',
+                    energy: '342',
+                    price: '3435',
+                },
+                {
+                    timepart1: 3,
+                    time: 'shijian3',
+                    energy: '342',
+                    price: '3435',
+                },
+                {
+                    timepart1: 3,
+                    time: 'shijian3',
+                    energy: '342',
+                    price: '3435',
+                },
+                {
+                    timepart1: 3,
+                    time: 'shijian3',
+                    energy: '342',
+                    price: '3435',
+                },
+            ]
+            this.tableData1 = []
+            let arrDate = {}
+            let cunNum = 1
+            let childNum = 0
+            let fatNum = 1
+            message.forEach((item, index) => {
+                if (index) {
+                    if (arrDate.timepart1 !== item.timepart1) {
+                        console.log(item, 'item')
+                    }
+
+                } else {
+                    arrDate = Object.assign({}, arrDate, {
+                        id: cunNum++,
+                        fatherId: fatNum++,
+                        timepart1: item.timepart1,
+                        tiem: item.time,
+                        children: []
+                    })
+                }
+                let childData = {}
+                childData = Object.assign({}, childData, {
+                    id: cunNum++,
+                    childId: childNum++,
+                    fatherId: fatNum -1,
+                    time: item.tiem,
+                    energy: item.energy,
+                    price: item.price
+                })
+                arrDate.children.push(childData)
+                console.log(arrDate, 'arrdata')
+            })
+            // this.tableData1 = message
+        },
+        formatIndex() {
+
+        },
         agreeChange(val) {
             console.log(this.radioTreaty)
             this.btnstatus = val === '不同意' ? true : false
@@ -183,10 +303,6 @@ export default {
         //     return this.$store.state.name
         // }
     },
-    mounted: function() {
-        // 方法一 组件里面分发actions
-        this.$store.dispatch('getHeros')
-    }
 }
 </script>
 
