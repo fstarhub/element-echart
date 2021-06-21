@@ -68,10 +68,18 @@
         <p>英雄{{person}}</p>
         <!-- <button @click='manwei'>触发事件</button> -->
     </div>
+    <!-- <p>影视名：{{ name }}</p>
+    <p>周年：{{ age }}</p>
+    <p>类型：{{ type }}</p> -->
+      <!-- <button @click='manwei'>触发事件</button> -->
+      <!-- <ul>
+        <li>{{filmMessage}}</li>
+      </ul>
+  </div> -->
 </template>
 
 <script>
-import {mapState,mapMutations,mapActions} from 'vuex'
+import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
     data() {
         var checkAge = (rule, value, callback) => {
@@ -295,8 +303,12 @@ export default {
         //     age:state=>state.age,
         // }),
 
-        // 方法二 组件里面获取state中的状态值
-        ...mapState(['person','age','name',])
+    // 方法一 组件里面提交mutation的方法
+    // ...mapMutations(['GETHROS'])
+    // 方法二 组件里面提交mutation的方法
+    // ...mapMutations({
+    //     add: 'GETHROS'
+    // })
 
         // 方法三 组件里面获取state中的状态值
         // manwei() {
@@ -308,4 +320,7 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="less" scoped>
+.radioContent {
+  width: 100%;
+}
 </style>

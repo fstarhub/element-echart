@@ -1,17 +1,28 @@
 
-import {reqHeros} from '../api'
-import {GET_HEROS} from './mutatin-types'
+import { reqHeros, reqFileMessage } from '../api' //reqHeros是一个Promise
+import { GET_HEROS } from './mutatin-types'
 export default {
-    getHeros ({commit}) {
-    console.log('haha')
-    // const heros = await reqHeros()
-    const heros={
-      name:'漫威',
-      age:18,
-      person:'美国队长',
-    }
-    console.log(heros)
-    commit(GET_HEROS,heros)
-    
-  }
+  async getHeros ({commit}) {
+    let heros  = await reqHeros.then(res => {
+      // Heros = res.data
+      console.log('erereresss', res.data)
+      commit(GET_HEROS, res.data)
+    }).catch()
+  // const heros={
+  //   name:'漫威',
+  //   age:18,
+  //   person:'美国队长',
+  // }
+  // console.log(muHeros, 'ooo')
+  // commit(GET_HEROS,heros)
+  },
+
+  async getFileMessage ({commit}) {
+    let fileMessage  = await reqFileMessage.then(res => {
+      console.log(res.data, 'ewew')
+      commit('GET_FILEMESSAGE', res.data)
+    }).catch(error => {
+      return
+    })
+  },
 }

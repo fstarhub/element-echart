@@ -22,15 +22,19 @@
             <Test></Test>
         </div>
     </div>
+    <!-- <div class="test">
+      <Test></Test>
+    </div> -->
+  <!-- </div> -->
 </template>
 
 <script>
 import Test from './test'
 export default {
-    name: 'Index',
-    components: {
-        Test
-    }
+  name: 'Index',
+  components: {
+    Test,
+  },
 }
 </script>
 

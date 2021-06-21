@@ -12,6 +12,7 @@ import Pie from '@/components/echarts/pie.vue'
 import Liquid from '@/components/echarts/liquidFill.vue'
 
 import project from '@/components/echarts/project.vue'
+import VxeTable from '@/views/vxeTable/index.vue'
 
 import Select from '@/components/element/select.vue'
 import Search from '@/components/element/search.vue'
@@ -21,56 +22,44 @@ import table from '@/components/vxeTable/table.vue'
 Vue.use(Router)
 
 export default new Router({
-    mode: 'history', // 地址栏没有#
-    routes: [
-        {
-            path: '/',
-            redirect: '/index'
+  mode: 'history', // 地址栏没有#
+  routes: [
+    {
+      path: '/',
+      redirect: '/index'
+    },
+    {
+      path: '/index',
+      name: 'Index',
+      component: Index
+    },
+    {
+      path: '/element',
+      name: 'Element',
+      component: Element,
+      redirect: '/element/select',
+      children: [{
+          path: 'select',
+          component: Select
         },
         {
-            path: '/index',
-            name: 'Index',
-            component: Index
+          path: 'search',
+          component: Search
+        }
+      ]
+    },
+    {
+      path: '/echarts',
+      name: 'Echarts',
+      component: Echarts,
+      redirect: '/echarts/line',
+      children: [{
+          path: '/echarts/line',
+          component: Line
         },
         {
-            path: '/element',
-            name: 'Element',
-            component: Element,
-            redirect: '/element/select',
-            children: [
-                {
-                    path: 'select',
-                    component: Select
-                },
-                {
-                    path: 'search',
-                    component: Search
-                }
-            ]
-        },
-        {
-            path: '/echarts',
-            name: 'Echarts',
-            component: Echarts,
-            redirect: '/echarts/line',
-            children: [
-                {
-                    path: '/echarts/line',
-                    component: Line
-                },
-                {
-                    path: '/echarts/pie',
-                    component: Pie
-                },
-                {
-                    path: 'liquidfill',
-                    component: Liquid
-                },
-                {
-                    path: 'project',
-                    component: project
-                }
-            ]
+          path: '/echarts/pie',
+          component: Pie
         },
         {
             path: '/vxeTable',
@@ -89,9 +78,25 @@ export default new Router({
             component: Dthree
         },
         {
-            path: '/iview',
-            name: 'Iview',
-            component: Iview
+          path: 'project',
+          component: project
         }
-    ]
+      ]
+    },
+    {
+      path: '/dthree',
+      name: 'Dthree',
+      component: Dthree
+    },
+    {
+      path: '/iview',
+      name: 'Iview',
+      component: Iview
+    },
+    {
+      path: '/vexTable',
+      name: 'VexTable',
+      component: VxeTable
+    }
+  ]
 })

@@ -15,7 +15,7 @@ axios.interceptors.request.use(config=>{
 // 响应拦截
 axios.interceptors.response.use(response=>{
   return response.data
-},errot=>{
+},error=>{
   const{response,status,message}=error
   //中断promise链
   return new Promise(()=>{})
