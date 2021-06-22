@@ -5,14 +5,19 @@ import Element from '@/views/element/index.vue'
 import Echarts from '@/views/echarts/index.vue'
 import Dthree from '@/views/dThree/index.vue'
 import Iview from '@/views/iview/index.vue'
+import vxeTable from '@/views/vxeTable/index.vue'
+
 import Line from '@/components/echarts/airLines.vue'
 import Pie from '@/components/echarts/pie.vue'
 import Liquid from '@/components/echarts/liquidFill.vue'
+
 import project from '@/components/echarts/project.vue'
 import VxeTable from '@/views/vxeTable/index.vue'
 
 import Select from '@/components/element/select.vue'
 import Search from '@/components/element/search.vue'
+
+import table from '@/components/vxeTable/table.vue'
 
 Vue.use(Router)
 
@@ -57,8 +62,20 @@ export default new Router({
           component: Pie
         },
         {
-          path: 'liquidfill',
-          component: Liquid
+            path: '/vxeTable',
+            name: 'vxeTable',
+            component: vxeTable,
+            children: [
+                {
+                    path: '/vxeTable/table',
+                    component: table
+                },
+            ]
+        },
+        {
+            path: '/dthree',
+            name: 'Dthree',
+            component: Dthree
         },
         {
           path: 'project',

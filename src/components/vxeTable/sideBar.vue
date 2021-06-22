@@ -1,14 +1,18 @@
-<!-- element页 -->
+<!-- 侧边栏 -->
 <template>
-    <div class="elementContainer">
-        <div class="elementTitle">vxeTable案例</div>
-        <div class="container">
-            <div class="navContainer">
-                <sideBar />
-            </div>
-            <div class="content">
-                <router-view></router-view>
-            </div>
+    <div class="sidebarContainer">
+        <div class="sideBarTitle">
+            <p>vxeTable案例</p>
+        </div>
+        <div class="sideBarContent">
+            <ul class="sideBarAll">
+                <li class="itemLine">
+                    <router-link to="/vxeTable/table">table</router-link>
+                </li>
+                <!-- <li class="itemPie">
+                    <router-link to="/element/search">搜索table</router-link>
+                </li> -->
+            </ul>
         </div>
     </div>
 </template>
@@ -16,12 +20,9 @@
 <script>
 //这里可以导入其他文件（比如：组件，工具js，第三方插件js，json文件，图片文件等等）
 //例如：import 《组件名称》 from '《组件路径》';
-import sideBar from '../../components/vxeTable/sideBar'
 export default {
     //import引入的组件需要注入到对象中才能使用
-    components: {
-        sideBar
-    },
+    components: {},
     data() {
         //这里存放数据
         return {}
@@ -64,23 +65,6 @@ export default {
 }
 </script>
 
-<style lang="less" rel="stylesheet/less">
-.elementContainer {
-    margin-top: 10px;
-    .container {
-        width: 100%;
-        height: 600px;
-        background: rgb(204, 200, 200);
-        .navContainer {
-            float: left;
-            width: 10%;
-            height: 600px;
-            background: lavender;
-        }
-        .content {
-            float: left;
-            width: 89%;
-        }
-    }
-}
+<style lang="less" scoped>
+//@import url(); 引入公共css类
 </style>

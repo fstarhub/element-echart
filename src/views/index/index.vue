@@ -1,42 +1,31 @@
 <template>
-  <div class="indexContainer">
-    <div class="indexBox">欢迎来到我的项目</div>
-    <div class="mainContainer">
-      <div
-        @click="$router.push('/element')"
-        class="left"
-      >
-        <div class="inner leftInner">Element-ui</div>
-      </div>
-      <div
-        @click="$router.push('/Dthree')"
-        class="leftOne"
-      >
-        <div class="inner leftInner">D3.js</div>
-      </div>
-      <div
-        @click="$router.push('/Iview')"
-        class="center"
-      >
-        <div class="inner leftInner">Iview</div>
-      </div>
-      <div
-        @click="$router.push('/echarts')"
-        class="rightOne"
-      >
-        <div class="inner rightInner">Echarts</div>
-      </div>
-      <div
-        @click="$router.push('/vexTable')"
-        class="right"
-      >
-        <div class="inner rightInner">vxe-table</div>
-      </div>
+    <div class="indexContainer">
+        <div class="indexBox">欢迎来到我的项目</div>
+        <div class="mainContainer">
+            <div @click="$router.push('/element')" class="left">
+                <div class="inner leftInner">Element-ui</div>
+            </div>
+            <div @click="$router.push('/Dthree')" class="leftOne">
+                <div class="inner leftInner">D3.js</div>
+            </div>
+            <div @click="$router.push('/Iview')" class="center">
+                <div class="inner leftInner">Iview</div>
+            </div>
+            <div @click="$router.push('/echarts')" class="rightOne">
+                <div class="inner rightInner">Echarts</div>
+            </div>
+            <div @click="$router.push('/vxeTable')" class="right">
+                <div class="inner rightInner">vxe-table</div>
+            </div>
+        </div>
+        <div class="test">
+            <Test></Test>
+        </div>
     </div>
-    <div class="test">
+    <!-- <div class="test">
       <Test></Test>
-    </div>
-  </div>
+    </div> -->
+  <!-- </div> -->
 </template>
 
 <script>
