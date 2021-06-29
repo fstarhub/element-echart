@@ -14,9 +14,11 @@
 
 <script>
 // import Vue from 'vue'
+import mixin from './myMinxin'
 import {extendTest} from './extendsTest'
 export default {
-  extends: extendTest,
+  // extends: extendTest,
+  // mixins:[mixin],
   components: {},
   data() {
     return {
