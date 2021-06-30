@@ -13,10 +13,10 @@
 </template>
 
 <script>
-// import Vue from 'vue'
-import {extendTest} from './extendsTest'
+import Vue from 'vue'
+// import {extendTest} from './extendsTest'
 export default {
-  extends: extendTest,
+  // extends: extendTest,
   components: {},
   data() {
     return {
@@ -78,6 +78,38 @@ export default {
 //     }
 //   })
 //   let proFile = new Profile().$mount('#mount-point')
+
+//   const comp={//声明一个对象comp
+//   props:{
+//     active:Boolean,
+//     propOne:String
+//   },
+//   template:`<div>
+//     <input type='text' v-model="a">
+//     <span @click="handl">{{propOne}}</span>
+//     <span v-if="active">134</span>
+//   </div>`,
+//   data(){
+//     return {
+//       a:0
+//     }
+//   },
+//   methods:{
+//     handl(){
+//       // this.onChange()
+//       this.$emit('changea')
+//     }
+//   }
+// }
+// const CompVue=Vue.extend(comp)//compVue 继承comp组件
+// new CompVue({//实例化组件
+//   el:'#mount-point',
+//   data(){
+//     return{
+//         a:30
+//     }
+//   }
+// })
 </script>
 
 <style lang="less" scoped>
