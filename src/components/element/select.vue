@@ -65,7 +65,7 @@
             </el-row>
         <p>年龄{{age}}</p>
         <p>名字{{name}}</p>
-        <p>英雄{{person}}</p>
+        <!-- <p>英雄{{person}}</p> -->
         <!-- <button @click='manwei'>触发事件</button> -->
     </div>
     <!-- <p>影视名：{{ name }}</p>
@@ -298,10 +298,10 @@ export default {
     },
     computed:{
         // 方法一 组件里面获取state中的状态值
-        // ...mapState({ 
-        //     name:state=>state.name,
-        //     age:state=>state.age,
-        // }),
+        ...mapState({ 
+            name:state=>state.name,
+            age:state=>state.age,
+        }),
 
     // 方法一 组件里面提交mutation的方法
     // ...mapMutations(['GETHROS'])

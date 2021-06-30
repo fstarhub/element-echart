@@ -13,6 +13,7 @@
 </template>
 
 <script>
+
 import Vue from 'vue'
 // import {extendTest} from './extendsTest'
 export default {

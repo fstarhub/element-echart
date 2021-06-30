@@ -21,6 +21,9 @@ Vue.prototype.$EventBus = new Vue()
 // 事件总线（跨组件通信）（写法三）
 Vue.prototype.$eventHub = Vue.prototype.$eventHub || new Vue()
 
+import mixin from './views/index/myMinxin'
+Vue.mixin(mixin)
+
 // 使用vxe-table
 import 'xe-utils'
 import VXETable from 'vxe-table'
