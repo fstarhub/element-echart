@@ -32,6 +32,11 @@ Vue.use(VXETable)
 
 Vue.prototype.$echarts = echarts
 Vue.use(ElementUI)
+
+// 使用lodash
+import _ from 'lodash'
+Vue.prototype._ = _
+
 /* eslint-disable no-new */
 //根组件--（this.$root）
 new Vue({

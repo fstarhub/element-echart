@@ -9,6 +9,7 @@
     <!-- <el-image style="width: 100px; height: 100px" src="https://api.wuzhen.my5v.com/regist/getVerifyCode?t=1619758809000"></el-image> -->
     <p>{{a | upper}}</p>
     <div id="mount-point"></div>
+    <p>测试lodash的使用：{{(_.add(10, 40)).toFixed(2)}}</p>
   </div>
 </template>
 
@@ -29,7 +30,8 @@ export default {
       ],
       name: 'zhangsan',
       age: 14,
-      a: 'hello'
+      a: 'hello',
+      sum: 0
     }
   },
   filters: {
@@ -66,6 +68,12 @@ export default {
     // getDom.appendChild(proFile.$el)
     // let getDom = document.getElementById('mount-point')
     // getDom.appendChild(extendTest.$el)
+    this.getSum()
+  },
+  methods: {
+    getSum: function() {
+      this.sum = this._.add(12,90)
+    }
   }
 }
 // var Profile = Vue.extend({
