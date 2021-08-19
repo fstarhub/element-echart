@@ -161,6 +161,18 @@
             //         values = list.map(m => m.b);
             //         console.log(des, values, 'wode1111');
             //     });
+            Promise.resolve().then(()=>{
+              console.log('Promise1')
+              setTimeout(()=>{
+                console.log('setTimeout2')
+              },0)
+            })
+            setTimeout(()=>{
+              console.log('setTimeout1')
+              Promise.resolve().then(()=>{
+                console.log('Promise2')
+              })
+            },0)
         </script>
     </body>
 </html>
