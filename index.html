@@ -126,10 +126,23 @@
             //     })
             //     return item
             // })
-            var newArr1 = arr.map(item =>{
-                item.list = item.list.filter(el => el.cost != null && el.cost !='')
-                return item
-            })
+            // var newArr1 = arr.map(item =>{
+            //     item.list = item.list.filter(el => el.cost != null && el.cost !='')
+            //     return item
+            // })
+            // console.log(newArr,newArr1, '----')
+
+            var person = {
+                name: "axuebin",
+                age: 25
+            };
+            function say(job){
+                console.log(typeof(job))
+                console.log(job.split(" "))
+                console.log(this.name+":"+this.age+" "+job);
+            }
+            // say.call(person,"FE"); // axuebin:25
+            say.apply(person,["F E"]); // axuebin:25
             // console.log(newArr,newArr1, '----')
             var a = [
                 { des: "qw", b: "reg", age: '1', name: 'eee'},
@@ -173,6 +186,15 @@
                 console.log('Promise2')
               })
             },0)
+            setTimeout(() => {
+                console.log(2)
+                new Promise(() => {
+                    console.log(3)
+                }).then(() => {
+                    console.log(4)
+                })
+            })
+            console.log(1)
         </script>
     </body>
 </html>

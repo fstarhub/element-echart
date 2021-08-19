@@ -134,7 +134,6 @@ export default {
         }
     },
     mounted: function() {
-        // 方法一 组件里面分发actions
         this.$store.dispatch('getHeros')
         this.init()
     },
@@ -281,39 +280,38 @@ export default {
             .then((res)=>{console.log(res)})
             .catch((err)=>{console.log(err)})
         }
+        // 获取state中的状态值，方法一 组件里面获取state中的状态值
+        // ...mapState({ 
+        //     name:state=>state.name,
+        //     age:state=>state.age,
+        // 获取state中的状态值，方法二 组件里面获取state中的状态值
+        // manwei() {
+        //     return this.$store.state.name
+        // }
         
-        // 方法一 组件里面提交mutation的方法
+        // 提交mutation的方法，方法一 组件里面提交mutation的方法
         // ...mapMutations(['GETHROS'])
-        // 方法二 组件里面提交mutation的方法
+        // 提交mutation的方法，方法二 组件里面提交mutation的方法
         // ...mapMutations({
         //     add: 'GETHROS'
         // })
+        // 提交mutation的方法，方法三 this.$store.commit('GETHROS')
         
-        // 方法二 组件里面分发actions
+        // 分发actions，方法二  this.$store.dispatch('getHeros')
+        // 分发actions，方法二 
         // ...mapActions(['getHeros'])
-        // 方法三 组件里面分发actions
+        // 分发actions，方法三 
         // ...mapActions({
         //     add:'getHeros'
         //     })
     },
     computed:{
-        // 方法一 组件里面获取state中的状态值
+        // 获取state中的状态值，方法一 组件里面获取state中的状态值
         ...mapState({ 
             name:state=>state.name,
             age:state=>state.age,
         }),
 
-    // 方法一 组件里面提交mutation的方法
-    // ...mapMutations(['GETHROS'])
-    // 方法二 组件里面提交mutation的方法
-    // ...mapMutations({
-    //     add: 'GETHROS'
-    // })
-
-        // 方法三 组件里面获取state中的状态值
-        // manwei() {
-        //     return this.$store.state.name
-        // }
     },
 }
 </script>
