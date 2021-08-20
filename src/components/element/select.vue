@@ -290,16 +290,26 @@ export default {
         // }
         
         // 提交mutation的方法，方法一 组件里面提交mutation的方法
-        // ...mapMutations(['GETHROS'])
+        // ...mapMutations(['GETHROS'], 123)增加载荷
         // 提交mutation的方法，方法二 组件里面提交mutation的方法
         // ...mapMutations({
         //     add: 'GETHROS'
         // })
-        // 提交mutation的方法，方法三 this.$store.commit('GETHROS')
+        // 提交mutation的方法，方法三 this.$store.commit('GETHROS'，123)增加载荷
+        // 对象提交方式
+        // this.$store.commit({
+        //   type: 'increment',
+        //   amount: 10
+        // })
         
-        // 分发actions，方法二  this.$store.dispatch('getHeros')
+        // 分发actions，方法一  this.$store.dispatch('getHeros',{name: 23})增加载荷
+        // 以对象形式分发
+          // store.dispatch({
+          //   type: 'incrementAsync',
+          //   amount: 10
+          // })
         // 分发actions，方法二 
-        // ...mapActions(['getHeros'])
+        // ...mapActions(['getHeros', 'getMes1', 'getMsg2'])
         // 分发actions，方法三 
         // ...mapActions({
         //     add:'getHeros'
