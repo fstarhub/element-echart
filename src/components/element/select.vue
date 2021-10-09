@@ -57,7 +57,7 @@
         </el-table>
             <el-row>
                 <el-button round @click='getMock'>mock1</el-button>
-                <el-button type="primary" round>主要按钮</el-button>
+                <el-button type="primary" round @click="getData">主要按钮</el-button>
                 <el-button type="success" round>成功按钮</el-button>
                 <el-button type="info" round>信息按钮</el-button>
                 <el-button type="warning" round>警告按钮</el-button>
@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
     data() {
@@ -138,6 +139,10 @@ export default {
         this.init()
     },
     methods: {
+      async getData() {
+        const result = await axios.get('/admin/user/add')
+        console.log(result, 'result')
+      },
         init() {
             var message = [
                 {
