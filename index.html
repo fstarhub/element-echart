@@ -143,6 +143,49 @@
             }
             // say.call(person,"FE"); // axuebin:25
             say.apply(person,["F E"]); // axuebin:25
+            // console.log(newArr,newArr1, '----')
+            var a = [
+                { des: "qw", b: "reg", age: '1', name: 'eee'},
+                { des: "vf", b: "fgdfd", age: '2', name: 'eee' },
+                { des: "qw", b: "fdfd", age: '3', name: 'eee' },
+                { des: "qw", b: "fdfd", age: '4', name: 'eee' },
+                { des: "qw", b: "fdfd", age: '5', name: 'eee' },
+                { des: "vf", b: "fdfd", age: 'e6', name: 'eee' },
+                { des: "vf", b: "fdfd", age: '7', name: 'eee' },
+                { des: "vf", b: "fdfd", age: '8', name: 'eee' },
+                { des: "haha", b: "fdfd", age: '9', name: 'eee' },
+                { des: "haha", b: "fdfd", age: '0', name: 'eee' },
+            ];
+
+            var map = a.reduce((all, m) => {
+                let list = all.get(m.des);
+                if (!list) {
+                    list = [];
+                    all.set(m.des, list);
+                }
+                list.push(m);
+                return all;
+            }, new Map());
+          console.log(map,'map-----------')
+            // Array.from(map.entries())
+            //     // 这里过滤掉 list 只有一个元素的，剩下的就是有重复的
+            //     .filter(([des, list]) => list.length > 1)
+            //     .forEach(([des, list]) => {
+            //         values = list.map(m => m.b);
+            //         console.log(des, values, 'wode1111');
+            //     });
+            Promise.resolve().then(()=>{
+              console.log('Promise1')
+              setTimeout(()=>{
+                console.log('setTimeout2')
+              },0)
+            })
+            setTimeout(()=>{
+              console.log('setTimeout1')
+              Promise.resolve().then(()=>{
+                console.log('Promise2')
+              })
+            },0)
             setTimeout(() => {
                 console.log(2)
                 new Promise(() => {

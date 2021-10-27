@@ -57,7 +57,7 @@
         </el-table>
             <el-row>
                 <el-button round @click='getMock'>mock1</el-button>
-                <el-button type="primary" round>主要按钮</el-button>
+                <el-button type="primary" round @click="getData">主要按钮</el-button>
                 <el-button type="success" round>成功按钮</el-button>
                 <el-button type="info" round>信息按钮</el-button>
                 <el-button type="warning" round>警告按钮</el-button>
@@ -79,6 +79,7 @@
 </template>
 
 <script>
+import axios from 'axios'
 import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
     data() {
@@ -134,11 +135,14 @@ export default {
         }
     },
     mounted: function() {
-        // 方法一 组件里面分发actions
         this.$store.dispatch('getHeros')
         this.init()
     },
     methods: {
+      async getData() {
+        const result = await axios.get('/admin/user/add')
+        console.log(result, 'result')
+      },
         init() {
             var message = [
                 {
@@ -281,39 +285,48 @@ export default {
             .then((res)=>{console.log(res)})
             .catch((err)=>{console.log(err)})
         }
+        // 获取state中的状态值，方法一 组件里面获取state中的状态值
+        // ...mapState({ 
+        //     name:state=>state.name,
+        //     age:state=>state.age,
+        // 获取state中的状态值，方法二 组件里面获取state中的状态值
+        // manwei() {
+        //     return this.$store.state.name
+        // }
         
-        // 方法一 组件里面提交mutation的方法
-        // ...mapMutations(['GETHROS'])
-        // 方法二 组件里面提交mutation的方法
+        // 提交mutation的方法，方法一 组件里面提交mutation的方法
+        // ...mapMutations(['GETHROS'], 123)增加载荷
+        // 提交mutation的方法，方法二 组件里面提交mutation的方法
         // ...mapMutations({
         //     add: 'GETHROS'
         // })
+        // 提交mutation的方法，方法三 this.$store.commit('GETHROS'，123)增加载荷
+        // 对象提交方式
+        // this.$store.commit({
+        //   type: 'increment',
+        //   amount: 10
+        // })
         
-        // 方法二 组件里面分发actions
-        // ...mapActions(['getHeros'])
-        // 方法三 组件里面分发actions
+        // 分发actions，方法一  this.$store.dispatch('getHeros',{name: 23})增加载荷
+        // 以对象形式分发
+          // store.dispatch({
+          //   type: 'incrementAsync',
+          //   amount: 10
+          // })
+        // 分发actions，方法二 
+        // ...mapActions(['getHeros', 'getMes1', 'getMsg2'])
+        // 分发actions，方法三 
         // ...mapActions({
         //     add:'getHeros'
         //     })
     },
     computed:{
-        // 方法一 组件里面获取state中的状态值
+        // 获取state中的状态值，方法一 组件里面获取state中的状态值
         ...mapState({ 
             name:state=>state.name,
             age:state=>state.age,
         }),
 
-    // 方法一 组件里面提交mutation的方法
-    // ...mapMutations(['GETHROS'])
-    // 方法二 组件里面提交mutation的方法
-    // ...mapMutations({
-    //     add: 'GETHROS'
-    // })
-
-        // 方法三 组件里面获取state中的状态值
-        // manwei() {
-        //     return this.$store.state.name
-        // }
     },
 }
 </script>
