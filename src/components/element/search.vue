@@ -19,20 +19,30 @@
           next-text="下一页"
           prev-text="上一页"
       />
-      <div class="wrapper" ref="scroll">
-          <ul class="content">
-              <li>1</li>
-              <li>2</li>
-              <li>3</li>
-              <li>4</li>
-              <li>5</li>
-              <li>6</li>
-              <li>7</li>
-              <li>8</li>
-              <li>9</li>
-              <li>10</li>
-              <li>11</li>
-          </ul>
+      <div>
+        <table class="tableClass">
+          <tr>
+            <th>名字</th>
+            <th>性别</th>
+            <th>年龄</th>
+          </tr>
+          <tr>
+            <td >张三</td>
+            <td >男</td>
+            <td >25</td>
+          </tr>
+          <tr>
+            <td>工作地址</td>
+            <td colspan="2">放假啊建立发觉啦啦啦</td>
+          </tr>
+          <tr>
+            <td rowspan="2">个人简介</td>
+            <td colspan="2">放假啊建立发觉啦啦啦</td>
+          </tr>
+          <tr>
+            <td colspan="2">放假啊建立发觉啦啦啦</td>
+          </tr>
+        </table>
       </div>
     </div>
 </template>
@@ -243,14 +253,19 @@ export default {
 
 <style lang="less" scoped>
 //@import url(); 引入公共css类
-.wrapper {
-    width: 100%;
-    height: 50px;
-    background: pink;
-    overflow: hidden;
-    position: relative;
-    ul {
-        margin: 0;
-    }
+.tableClass {
+  border-collapse: collapse;
+  // table-layout: fixed;
+  // width: 100%;
+  // border-left: 2px solid #858585;
+  // border-right: 2px solid #858585;
+  // // border-top: 1px solid #858585;
+  // border-bottom: 0;
+  border: 2px solid #858585 ;
+}
+.tableClass td {
+  border: 1px solid #8E8E8E;
+  height: 40px;
+  padding: 0 20px;
 }
 </style>
