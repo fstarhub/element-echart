@@ -44,6 +44,30 @@
           </tr>
         </table>
       </div>
+      <el-calendar v-model="value">
+          <!-- 这里使用的是 2.5 slot 语法，对于新项目请使用 2.6 slot 语法-->
+          <template
+            slot="dateCell"
+            slot-scope="{date, data}">
+            <div @click="viewDayWork(data)">
+              <p :class="data.isSelected ? 'is-selected' : ''">
+                {{ data.day.split('-').slice(1)[1] }} {{ data.isSelected ? '✔️' : ''}}
+                <br />
+                <span>zhangsan</span>
+              </p>
+            </div>
+          </template>
+        </el-calendar>
+        <el-dialog
+          title="提示"
+          :visible.sync="dialogVisible"
+          width="30%">
+          <span>日期{{ddd}}</span>
+          <span slot="footer" class="dialog-footer">
+            <el-button @click="dialogVisible = false">取 消</el-button>
+            <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+          </span>
+        </el-dialog>
     </div>
 </template>
 
@@ -105,7 +129,10 @@ export default {
       pageSize: 2,
       totalItems: 0,
       filterTableDataEnd: [],
-      flag: false
+      flag: false,
+      value: new Date(),
+      ddd: "",
+      dialogVisible: false
     }
   },
   mounted() {
@@ -116,6 +143,11 @@ export default {
   },
   //组件的方法集合
   methods: {
+    viewDayWork(data) {
+      console.log(data);
+      this.ddd = data.day
+      this.dialogVisible = !this.dialogVisible
+    },
     //前端搜索功能需要区分是否检索,因为对应的字段的索引不同
     //用两个变量接收currentChangePage函数的参数
     doFilter() {
@@ -268,4 +300,7 @@ export default {
   height: 40px;
   padding: 0 20px;
 }
+.is-selected {
+    color: #1989FA;
+  }
 </style>
