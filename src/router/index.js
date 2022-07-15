@@ -45,7 +45,27 @@ export default new Router({
         {
           path: 'search',
           component: Search
-        }
+        },
+        {
+          path: 'yingJiYanLianGuanLi',
+          component: () => import('@/components/element/yingJiYanLianGuanLi')
+        },
+        {
+          path: 'yingJiWuZhiYuSheBei',
+          component: () => import('@/components/element/yingJiWuZhiYuSheBei')
+        },
+        {
+          path: 'yingJiKongJianYuSheShi',
+          component: () => import('@/components/element/yingJiKongJianYuSheShi')
+        },
+        {
+          path: 'expertTeam',
+          component: () => import('@/components/element/expertTeam')
+        },
+        {
+          path: 'jianCeJiGou',
+          component: () => import('@/components/element/jianCeJiGou')
+        },
       ]
     },
     {

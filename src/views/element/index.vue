@@ -67,18 +67,22 @@ export default {
 <style lang="less" rel="stylesheet/less">
 .elementContainer {
     margin-top: 10px;
+    height: 790px;
     .container {
         width: 100%;
-        height: 600px;
+        height: 100%;
         background: rgb(204, 200, 200);
+        display: flex;
         .navContainer {
-            float: left;
+            // float: left;
             width: 200px;
-            height: 600px;
+            height: 100%;
             background: lavender;
         }
         .content {
-            float: left;
+            // float: left;
+            width: 100%;
+            height: 100%;
         }
     }
 }

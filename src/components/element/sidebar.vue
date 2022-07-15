@@ -12,6 +12,21 @@
                 <li class="itemPie">
                     <router-link to="/element/search">搜索table</router-link>
                 </li>
+                <li class="itemPie">
+                    <router-link to="/element/yingJiYanLianGuanLi">应急演练管理</router-link>
+                </li>
+                <li class="itemPie">
+                    <router-link to="/element/yingJiWuZhiYuSheBei">应急物资与设备</router-link>
+                </li>
+                <li class="itemPie">
+                    <router-link to="/element/yingJiKongJianYuSheShi">应急空间与设施</router-link>
+                </li>
+                <li class="itemPie">
+                    <router-link to="/element/expertTeam">专家队伍</router-link>
+                </li>
+                <li class="itemPie">
+                    <router-link to="/element/jianCeJiGou">检测机构</router-link>
+                </li>
             </ul>
         </div>
     </div>
