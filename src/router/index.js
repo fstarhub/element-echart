@@ -66,6 +66,34 @@ export default new Router({
           path: 'jianCeJiGou',
           component: () => import('@/components/element/jianCeJiGou')
         },
+        {
+          path: 'zhengFuYingJiRenYuan',
+          component: () => import('@/components/element/zhengFuYingJiRenYuan')
+        },
+        {
+          path: 'qiYeYingJiRenYuan',
+          component: () => import('@/components/element/qiYeYingJiRenYuan')
+        },
+        {
+          path: 'shiJianAnLiKu',
+          component: () => import('@/components/element/shiJianAnLiKu')
+        },
+        {
+          path: 'faLvFaGuiKu',
+          component: () => import('@/components/element/faLvFaGuiKu')
+        },
+        {
+          path: 'jiShuGuiFanKu',
+          component: () => import('@/components/element/jiShuGuiFanKu')
+        },
+        {
+          path: 'huanJingFengXianWuZiKu',
+          component: () => import('@/components/element/huanJingFengXianWuZiKu')
+        },
+        {
+          path: 'zhiBanGuanLi',
+          component: () => import('@/components/element/zhiBanGuanLi')
+        },
       ]
     },
     {

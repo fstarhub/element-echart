@@ -176,7 +176,7 @@
 </template>
 <script>
 export default {
-  name: 'expertTeam',
+  name: 'zhengFuYingJiRenYuan',
   data() {
     return {
       activeName: 'first',

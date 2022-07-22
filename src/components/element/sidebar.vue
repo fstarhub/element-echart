@@ -27,6 +27,27 @@
                 <li class="itemPie">
                     <router-link to="/element/jianCeJiGou">检测机构</router-link>
                 </li>
+                <li class="itemPie">
+                    <router-link to="/element/zhengFuYingJiRenYuan">政府应急人员</router-link>
+                </li>
+                <li class="itemPie">
+                    <router-link to="/element/qiYeYingJiRenYuan">企业应急人员</router-link>
+                </li>
+                <li class="itemPie">
+                    <router-link to="/element/shiJianAnLiKu">事件案例库</router-link>
+                </li>
+                <li class="itemPie">
+                    <router-link to="/element/faLvFaGuiKu">法律法规库</router-link>
+                </li>
+                <li class="itemPie">
+                    <router-link to="/element/jiShuGuiFanKu">技术规范库</router-link>
+                </li>
+                <li class="itemPie">
+                    <router-link to="/element/huanJingFengXianWuZiKu">环境风险物资库</router-link>
+                </li>
+                <li class="itemPie">
+                    <router-link to="/element/zhiBanGuanLi">值班管理</router-link>
+                </li>
             </ul>
         </div>
     </div>

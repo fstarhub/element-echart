@@ -45,29 +45,29 @@
         </table>
       </div>
       <el-calendar v-model="value">
-          <!-- 这里使用的是 2.5 slot 语法，对于新项目请使用 2.6 slot 语法-->
-          <template
-            slot="dateCell"
-            slot-scope="{date, data}">
-            <div @click="viewDayWork(data)">
-              <p :class="data.isSelected ? 'is-selected' : ''">
-                {{ data.day.split('-').slice(1)[1] }} {{ data.isSelected ? '✔️' : ''}}
-                <br />
-                <span>zhangsan</span>
-              </p>
-            </div>
-          </template>
-        </el-calendar>
-        <el-dialog
-          title="提示"
-          :visible.sync="dialogVisible"
-          width="30%">
-          <span>日期{{ddd}}</span>
-          <span slot="footer" class="dialog-footer">
-            <el-button @click="dialogVisible = false">取 消</el-button>
-            <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
-          </span>
-        </el-dialog>
+        <!-- 这里使用的是 2.5 slot 语法，对于新项目请使用 2.6 slot 语法-->
+        <template
+          slot="dateCell"
+          slot-scope="{date, data}">
+          <div @click="viewDayWork(data)">
+            <p :class="data.isSelected ? 'is-selected' : ''">
+              {{ data.day.split('-').slice(1)[1] }} {{ data.isSelected ? '✔️' : ''}}
+              <br />
+              <span>zhangsan</span>
+            </p>
+          </div>
+        </template>
+      </el-calendar>
+      <el-dialog
+        title="提示"
+        :visible.sync="dialogVisible"
+        width="30%">
+        <span>日期{{ddd}}</span>
+        <span slot="footer" class="dialog-footer">
+          <el-button @click="dialogVisible = false">取 消</el-button>
+          <el-button type="primary" @click="dialogVisible = false">确 定</el-button>
+        </span>
+      </el-dialog>
     </div>
 </template>
 

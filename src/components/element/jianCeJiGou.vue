@@ -57,6 +57,20 @@
               <span>134</span>
             </el-form-item>
           </el-form>
+          <el-row style="text-align: center; margin-top: 20px;">
+            <el-button type="primary" @click="doEdit" size="mini">编辑</el-button>
+            <el-popover
+              placement="top"
+              width="160"
+              v-model="deleteVisible">
+              <p>删除后将不再列表展示，是否删除？</p>
+              <div style="text-align: right; margin: 0">
+                <el-button size="mini" type="text" @click="cancelDelete">取消</el-button>
+                <el-button type="primary" size="mini" @click="confirmDelete">确定</el-button>
+              </div>
+              <el-button slot="reference" @click="doDelete" size="mini">删除</el-button>
+            </el-popover>
+          </el-row>
         </div>
         <div class="organizationItem">
           123
@@ -103,7 +117,8 @@ export default {
           value: '选项5',
           label: '北京烤鸭'
         }],
-        organizetionObj: {}
+        organizetionObj: {},
+        deleteVisible: false,
     }
   },
   methods: {
@@ -112,6 +127,18 @@ export default {
     },
     doNewadd() {
 
+    },
+    doEdit() {
+
+    },
+    doDelete() {
+
+    },
+    cancelDelete() {
+      this.deleteVisible = false
+    },
+    confirmDelete() {
+      this.deleteVisible = false
     },
   },
 }
@@ -138,7 +165,7 @@ export default {
   .organizationItem {
     height: 356px;
     width: calc((100% - 48px)/4);
-    background: pink;
+    background: white;
     margin-bottom: 16px;
     &:nth-of-type(4n) {
       margin-right: 0px;
@@ -164,5 +191,13 @@ export default {
   /deep/.el-form-item {
     margin-bottom: 0px;
   }
+  /deep/.el-form-item__label {
+    height: 34px;
+  }
+  /deep/.el-form-item__content {
+    height: 34px;
+    color: #666666;
+  }
 }
+
 </style>
