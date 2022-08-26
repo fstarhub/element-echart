@@ -52,10 +52,14 @@
 import axios from 'axios'
 import { mapState, mapMutations, mapActions } from 'vuex'
 export default {
+  dicts: ['3001'],
   data() {
     return {
       tableData1: []
     }
+  },
+  create() {
+    console.log(this.dict, 'dict0000')
   },
   mounted: function () {
     // this.$store.dispatch('getHeros')
@@ -63,7 +67,8 @@ export default {
   },
   methods: {
     async getData() {
-      const result = await axios.get('/admin/user/add')
+      // const result = await axios.get('/admin/user/add')
+      const result = await axios.get('/users/add')
       console.log(result, 'result')
     },
     init() {

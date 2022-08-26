@@ -37,6 +37,9 @@ Vue.use(ElementUI)
 import _ from 'lodash'
 Vue.prototype._ = _
 
+// 使用插件 -字典
+import dict from './utils/dict/index'
+Vue.use(dict)
 /* eslint-disable no-new */
 //根组件--（this.$root）
 new Vue({
