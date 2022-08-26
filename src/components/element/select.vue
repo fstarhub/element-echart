@@ -63,12 +63,12 @@ export default {
   },
   mounted: function () {
     // this.$store.dispatch('getHeros')
-    this.init()
+    // this.init()
   },
   methods: {
     async getData() {
       // const result = await axios.get('/admin/user/add')
-      const result = await axios.get('/users/add')
+      const result = await axios.post('/users/add', {})
       console.log(result, 'result')
     },
     init() {
